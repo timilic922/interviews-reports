@@ -1,29 +1,33 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Sidebar from "../../components/Sidebar/Sidebar";
-import ListOfCandidates from "../../components/ListOfCandidates/ListOfCandidates";
-import ListOfCompanis from "../../components/ListOfCompanis/ListOfCompanis";
-import ListOfReports from "../../components/ListOfReports/ListOfReports";
+import Candidates from '../../components/Candidates/Candidates';
+import Companies from '../../components/Companies/Companies';
+import Reports from '../../components/Reports/Reports'
 import "./admin.scss";
 function Container() {
   return (
-    <>
+    <div className="wrapper">
         <Sidebar />
-
-        {/* <Switch>
-          <Route path="/container/Candidates">
-            <ListOfCandidates />
+        <main>
+        <Switch>
+          <Route path="/admin/candidates">
+            {/* <Candidates /> */}
+            Kandidati
           </Route>
 
-          <Route path="/container/Companies" style>
-            <ListOfCompanis />
+          <Route path="/admin/companies">
+            {/* <Companies /> */}
+            kompanije
           </Route>
 
-          <Route path="/container/Reports">
-            <ListOfReports />
+          <Route path="/admin/reports">
+            {/* <Reports /> */}
+            izvestaji
           </Route>
-        </Switch> */}
-  </>
+        </Switch> 
+        </main>
+  </div>
   );
 }
 

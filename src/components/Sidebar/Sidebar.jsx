@@ -14,13 +14,13 @@ function Sidebar() {
   return (
     <aside className="sideBar">
       <nav>
-        <Link to="/candidates">
+        <Link to="/admin/candidates" className="navItem">
           <p>Canidates</p>                                                                                     
         </Link>
-        <Link to="/admin/Companies">
+        <Link to="/admin/companies" className="navItem">
           <p>Companies</p>
         </Link>
-        <Link to="/admin/Reports">
+        <Link to="/admin/reports" className="navItem">
           <p>Reports</p>
         </Link>
       </nav>

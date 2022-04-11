@@ -5,11 +5,17 @@
     flex-direction: column;
     justify-content: space-between;
     background-color: #272932;
-    padding: 2.5rem 1.5rem 2rem 1rem;
+    padding: 2.5rem 1.4rem 2rem 1rem;
 }
 
-.navItem{
-    color:#E4E9F1
+.navItem p{
+    color:#E4E9F1;
+    line-height: 1.5rem;
+    padding: 5px 0 5px 10px;
+}
+
+.navItem:hover p{
+    background-color: #1a1b21;
 }
 
 /* .wraper{
