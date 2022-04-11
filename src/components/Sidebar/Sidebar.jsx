@@ -1,28 +1,35 @@
-import React from 'react'
-import {Link} from "react-router-dom"
-import "./sidebar.scss"
+import React from "react";
+import { Link } from "react-router-dom";
+import "./sidebar.scss";
+// import { FiUsers } from "react-icons/fi";                                                                                          
+
 
 function Sidebar() {
-  const logOut=()=>{
-    const flag=false;
-    if(!flag){
-    <Link to="/"></Link>}
-  }
+  const logOut = () => {
+    const flag = false;
+    if (!flag) {
+      <Link to="/"></Link>;
+    }
+  };
   return (
-
-    <div className='wraper'>
-    <       div className='wraper-sidebar'>
-    
-            <div className='options'>
-            <Link to="/container/Candidates"><p>Canidates</p></Link>
-            <Link to="/container/Companies"><p>Companies</p></Link>
-            <Link to="/container/Reports"><p>Reports</p></Link>
-            </div>
-            <Link to="/"> <button onClick={logOut}>LogOut</button></Link>
-
-            </div>
-            </div>
-  )
+    <aside className="sideBar">
+      <nav>
+        <Link to="/candidates">
+          <p>Canidates</p>                                                                                     
+        </Link>
+        <Link to="/admin/Companies">
+          <p>Companies</p>
+        </Link>
+        <Link to="/admin/Reports">
+          <p>Reports</p>
+        </Link>
+      </nav>
+      <Link className="logOut" to="/">
+        {" "}
+        <button onClick={logOut}>LogOut</button>
+      </Link>
+    </aside>
+  );
 }
 
-export default Sidebar
+export default Sidebar;

@@ -10,7 +10,7 @@ function App() {
   const [isLogedIn, setIsLogedIn]=useState(JSON.parse(localStorage.getItem('login')))
   //  setIsLogedIn(JSON.parse(localStorage.getItem('login')))
   return (
-    <div>
+    <div className="App">
       
       {!isLogedIn && <Switch>
         <Route path='/'><Login setIsLogedIn={setIsLogedIn}/></Route>
@@ -43,3 +43,6 @@ function App() {
 }
 
 export default App;
+
+
+

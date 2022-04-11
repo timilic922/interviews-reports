@@ -1,4 +1,18 @@
-.wraper{
+.sideBar{
+    width: 300px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #272932;
+    padding: 2.5rem 1.5rem 2rem 1rem;
+}
+
+.navItem{
+    color:#E4E9F1
+}
+
+/* .wraper{
     display: flex;
     height: 100vh;
     width: 300px;
@@ -17,4 +31,4 @@
 .options{
     margin-top: 20px;
     background-color: rgb(99, 207, 207);
-}
+} */
