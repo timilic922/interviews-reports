@@ -1,9 +1,12 @@
 import React from 'react'
 import { useState } from 'react'
-import {Link, Route} from "react-router-dom"
+import {Link, useHistory} from "react-router-dom"
 import "./login.scss"
 
-function Login(keepToken) {
+function Login({setIsLogedIn}) {
+
+  let history = useHistory();
+
   const[user, setUser]=useState({
     email:"",
     password:""
@@ -17,12 +20,16 @@ function Login(keepToken) {
       },
       body: JSON.stringify(user)
     }).then((res)=>res.json())
-    .then((res)=>console.log(res))}
-  
+    .then((res)=> {if(res.accessToken){
+      setIsLogedIn(res.accessToken)
+    localStorage.setItem('login', JSON.stringify(res.accessToken))}})
+    
+    history.push("/");
+  }
 
   return (
     <div>     
-     <Link to="container"><p>LOgin</p></Link>
+     <Link to="/container"><p>LOgin</p></Link>
      <div className='log-wraper'>
      <div className='log-form'>
      <label>
