@@ -8,8 +8,8 @@ function Sidebar() {
   const logOut = () => {
     const flag = false;
     if (!flag) {
-      <Link to="/"></Link>;
-    }
+      <Link to="/"></Link>;}
+    
   };
   return (
     <aside className="sideBar">

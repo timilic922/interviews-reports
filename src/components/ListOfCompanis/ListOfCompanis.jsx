@@ -1,11 +1,14 @@
 import React from 'react'
+import CompanieListItem from './CompanieListItem'
 
-function ListOfCompanis() {
+function ListOfCompanis({companies}) {
   return (
-    <div>
-      <p>Companies</p>
-      <input type="text" placeholder='Serch Companies' />
-    </div>
+    <>
+    {companies.map((e)=>(
+      <CompanieListItem key={e.id} company={e}/>
+    ))}
+      
+    </>
   )
 }
 
