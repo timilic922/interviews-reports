@@ -1,22 +1,55 @@
 .sideBar{
-    width: 300px;
-    height: 100%;
     display: flex;
+    width: 300px;
     flex-direction: column;
+    align-items: center;
     justify-content: space-between;
-    background-color: #272932;
-    padding: 2.5rem 1.4rem 2rem 1rem;
+    background-color: #0E131B; 
+    padding: 3rem 1.5rem 1rem 1.5rem;
+
+    .sideBar-top{
+        width: 100%;
+
+        .logo{
+            padding-bottom: 1.3rem;
+            border-bottom: 1px solid #232F43;
+        }
+
+        nav {
+            .navItem {
+                color: #D7DEEA;
+                p{
+                    padding: .8rem 1.2rem;
+                }
+            }
+
+            a.navItem p:hover {
+                background-color: #151C28; 
+            }
+        }
+    }
+    .logOut{
+        background-color: transparent;
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: hsl(218, 40%, 20%);
+        padding: .5rem 1rem;
+        cursor: pointer;
+        outline: none;
+        border: none;
+    }
 }
 
-.navItem p{
-    color:#E4E9F1;
-    line-height: 1.5rem;
-    padding: 5px 0 5px 10px;
-}
+// .navItem p{
+//     color:#E4E9F1;
+//     line-height: 1.5rem;
+//     padding: 5px 0 5px 10px;
+// }
 
-.navItem:hover p{
-    background-color: #1a1b21;
-}
+// .navItem:hover p{
+//     background-color: #1a1b21;
+// }
 
 /* .wraper{
     display: flex;

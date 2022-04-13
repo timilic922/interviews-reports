@@ -1,0 +1,35 @@
+.container_newReport {
+  margin: 0 auto;
+
+  .select {
+    display: flex;
+    flex-direction: column;
+
+    select {
+      width: 320px;
+      font-size: 1rem;
+
+      option {
+        padding: 10px 15px;
+      }
+
+      option:hover {
+        background-color: purple;
+      }
+
+      option:checked {
+        background-color: yellow;
+      }
+    }
+  }
+}
+
+
+
+input.btnWizzard,
+input.btnWizzard-Next,
+input.btnWizzard-Next_disabled {
+  margin-top: 20px;
+  padding: 10px;
+  font-size: .7rem;
+}

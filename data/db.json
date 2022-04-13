@@ -1,0 +1,95 @@
+{
+  "candidates": [
+    {
+      "id": 0,
+      "name": "neka smaracica ",
+      "birthday": "2022-04-20",
+      "title": "profeson",
+      "email": "nekasmaracica@dayrep.com",
+      "datetime": "April 12, 2022 8:29:48 PM"
+    },
+    {
+      "id": 1,
+      "name": "Brad Pitt",
+      "birthday": "2022-04-03",
+      "title": "frontend car",
+      "email": "noasdas@sad.com",
+      "datetime": "April 12, 2022 10:19:09 PM"
+    },
+    {
+      "id": 2,
+      "name": "asdadas",
+      "birthday": "2022-04-04",
+      "title": "dasds",
+      "email": "asdasda",
+      "datetime": "April 12, 2022 8:34:32 PM"
+    },
+    {
+      "id": 3,
+      "name": "nije vise smaracica",
+      "birthday": "2022-03-31",
+      "title": "frontend car",
+      "email": "asdasda",
+      "datetime": "April 12, 2022 10:17:32 PM"
+    }
+  ],
+  "companies": [
+    {
+      "id": 34149463,
+      "name": "Wintheiser - Padberg",
+      "email": "Carolina.Ryan@gmail.com"
+    },
+    {
+      "id": 11081915,
+      "name": "Krajcik Inc",
+      "email": "Miguel.Veum@yahoo.com"
+    },
+    {
+      "id": 41822931,
+      "name": "Leffler, Kulas and Schulist",
+      "email": "Genevieve.Flatley@yahoo.com"
+    },
+    {
+      "id": 35251209,
+      "name": "Konopelski - Romaguera",
+      "email": "Kian.Schimmel@gmail.com"
+    },
+    {
+      "id": 32220706,
+      "name": "Thompson, Grimes and Wolf",
+      "email": "Cayla.Kuphal54@yahoo.com"
+    },
+    {
+      "id": 32220707,
+      "name": " SOFTVER INZINJERING",
+      "email": "INFO@IVSI.CO.RS"
+    },
+    {
+      "id": 32220708,
+      "name": "IVAN I VANJA SOFTVER INZINJERING",
+      "email": "",
+      "datetime": "April 13, 2022 3:20:48 PM"
+    }
+  ],
+  "reports": [
+    {
+      "id": 1,
+      "candidate": {
+        "id": 0,
+        "name": "neka smaracica ",
+        "birthday": "2022-04-20",
+        "title": "profeson",
+        "email": "nekasmaracica@dayrep.com",
+        "datetime": "April 12, 2022 8:29:48 PM"
+      },
+      "company": {
+        "id": 32220708,
+        "name": "IVAN I VANJA SOFTVER INZINJERING",
+        "email": "",
+        "datetime": "April 13, 2022 3:20:48 PM"
+      },
+      "phase":"cv",
+      "status":"passed"
+    }
+  ]
+}

@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./sidebar.scss";
-// import { FiUsers } from "react-icons/fi";                                                                                          
+
+
 
 
 function Sidebar() {
@@ -13,20 +14,23 @@ function Sidebar() {
   };
   return (
     <aside className="sideBar">
-      <nav>
-        <Link to="/admin/candidates" className="navItem">
-          <p>Canidates</p>                                                                                     
-        </Link>
-        <Link to="/admin/companies" className="navItem">
-          <p>Companies</p>
-        </Link>
-        <Link to="/admin/reports" className="navItem">
-          <p>Reports</p>
-        </Link>
-      </nav>
+      <div className="sideBar-top">
+        <div className="logo" style={{color:'white'}}>logo</div>
+        <nav>
+          <Link to="/admin/candidates" className="navItem">
+            <p>Canidates</p>
+          </Link>
+          <Link to="/admin/companies" className="navItem">
+            <p>Companies</p>
+          </Link>
+          <Link to="/admin/reports" className="navItem">
+            <p>Reports</p>
+          </Link>
+        </nav>
+      </div>
       <Link className="logOut" to="/">
         {" "}
-        <button onClick={logOut}>LogOut</button>
+        <button className="logOut" onClick={logOut}>LogOut</button>
       </Link>
     </aside>
   );
