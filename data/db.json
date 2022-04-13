@@ -26,11 +26,11 @@
     },
     {
       "id": 3,
-      "name": "nije vise smaracica",
+      "name": "NIJE VISE SMARACICA",
       "birthday": "2022-03-31",
       "title": "frontend car",
       "email": "asdasda",
-      "datetime": "April 12, 2022 10:17:32 PM"
+      "datetime": "April 13, 2022 3:59:26 PM"
     }
   ],
   "companies": [
@@ -88,8 +88,8 @@
         "email": "",
         "datetime": "April 13, 2022 3:20:48 PM"
       },
-      "phase":"cv",
-      "status":"passed"
+      "phase": "cv",
+      "status": "passed"
     }
   ]
 }
