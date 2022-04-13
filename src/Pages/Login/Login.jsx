@@ -26,7 +26,6 @@ function Login({ setIsLogedIn }) {
           localStorage.setItem('login', JSON.stringify(res.accessToken))
         }
       })
-    // history.push("/");
   }
 
   return (

@@ -294,6 +294,7 @@ function Admin() {
               editCandidate={editCandidate}
             />
           </Route>
+          
 
           <Route exact path="/admin/companies/new">
             <AddNewCompany
