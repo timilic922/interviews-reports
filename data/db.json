@@ -67,29 +67,124 @@
     {
       "id": 32220708,
       "name": "IVAN I VANJA SOFTVER INZINJERING",
-      "email": "",
-      "datetime": "April 13, 2022 3:20:48 PM"
+      "email": "INFO@IVSI.CO.RS",
+      "datetime": "April 13, 2022 4:48:45 PM"
+    },
+    {
+      "id": 32220709,
+      "name": "123",
+      "email": "INFO@IVSI.CO.RS",
+      "number": "asd",
+      "pib": "dasd",
+      "address": "dasd",
+      "contact": "dasdas",
+      "datetime": "April 14, 2022 4:43:53 PM"
     }
   ],
   "reports": [
     {
-      "id": 1,
+      "id": 20,
       "candidate": {
-        "id": 0,
-        "name": "neka smaracica ",
-        "birthday": "2022-04-20",
-        "title": "profeson",
-        "email": "nekasmaracica@dayrep.com",
-        "datetime": "April 12, 2022 8:29:48 PM"
+        "id": 1,
+        "name": "Brad Pitt",
+        "birthday": "2022-04-03",
+        "title": "frontend car",
+        "email": "noasdas@sad.com",
+        "datetime": "April 12, 2022 10:19:09 PM"
       },
       "company": {
-        "id": 32220708,
-        "name": "IVAN I VANJA SOFTVER INZINJERING",
-        "email": "",
-        "datetime": "April 13, 2022 3:20:48 PM"
+        "id": 41822931,
+        "name": "Leffler, Kulas and Schulist",
+        "email": "Genevieve.Flatley@yahoo.com"
       },
-      "phase": "cv",
-      "status": "passed"
+      "interviewDate": "2022-04-04",
+      "phase": "hr",
+      "status": "passed",
+      "datetime": "April 14, 2022 8:20:10 AM"
+    },
+    {
+      "id": 21,
+      "candidate": {
+        "id": 1,
+        "name": "Brad Pitt",
+        "birthday": "2022-04-03",
+        "title": "frontend car",
+        "email": "noasdas@sad.com",
+        "datetime": "April 12, 2022 10:19:09 PM"
+      },
+      "company": {
+        "id": 35251209,
+        "name": "Konopelski - Romaguera",
+        "email": "Kian.Schimmel@gmail.com"
+      },
+      "interviewDate": "2022-04-05",
+      "phase": "tech",
+      "status": "passed",
+      "notes": "asdsadasdasdsadsadsadsad",
+      "datetime": "April 14, 2022 8:22:38 AM"
+    },
+    {
+      "id": 22,
+      "candidate": {
+        "id": 3,
+        "name": "NIJE VISE SMARACICA",
+        "birthday": "2022-03-31",
+        "title": "frontend car",
+        "email": "asdasda",
+        "datetime": "April 13, 2022 3:59:26 PM"
+      },
+      "company": {
+        "id": 35251209,
+        "name": "Konopelski - Romaguera",
+        "email": "Kian.Schimmel@gmail.com"
+      },
+      "interviewDate": "2022-04-05",
+      "phase": "final",
+      "status": "declined",
+      "notes": "asdsadasdasdsadsadsadsad",
+      "datetime": "April 14, 2022 8:54:06 AM"
+    },
+    {
+      "id": 23,
+      "candidate": {
+        "id": 3,
+        "name": "NIJE VISE SMARACICA",
+        "birthday": "2022-03-31",
+        "title": "frontend car",
+        "email": "asdasda",
+        "datetime": "April 13, 2022 3:59:26 PM"
+      },
+      "company": {
+        "id": 32220706,
+        "name": "Thompson, Grimes and Wolf",
+        "email": "Cayla.Kuphal54@yahoo.com"
+      },
+      "interviewDate": "2022-04-04",
+      "phase": "tech",
+      "status": "declined",
+      "notes": "adsa",
+      "datetime": "April 14, 2022 11:22:07 AM"
+    },
+    {
+      "id": 24,
+      "candidate": {
+        "id": 2,
+        "name": "asdadas",
+        "birthday": "2022-04-04",
+        "title": "dasds",
+        "email": "asdasda",
+        "datetime": "April 12, 2022 8:34:32 PM"
+      },
+      "company": {
+        "id": 41822931,
+        "name": "Leffler, Kulas and Schulist",
+        "email": "Genevieve.Flatley@yahoo.com"
+      },
+      "interviewDate": "",
+      "phase": "tech",
+      "status": "passed",
+      "notes": "sad",
+      "datetime": "April 14, 2022 11:27:18 AM"
     }
   ]
 }

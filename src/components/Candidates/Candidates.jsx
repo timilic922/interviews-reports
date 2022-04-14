@@ -13,26 +13,24 @@ const Candidates = ({ candidates, searchCandidates, setSearchCandidates }) => {
         <Link
           to='/admin/candidates/new'
           className='LinkBtn'>
-          <div className='btn btnAddNew'> Add New </div>
+          <div className='btn btnAddNew'> Add New Candidate </div>
         </Link>
       </div>
-      
+
       <div className="container">
-        
-          <form className='searchInput' onSubmit={(e) => e.preventDefault()}>
-            <input
-              className='search'
-              type="text"
-              placeholder='Name | Phone | Email | Education'
-              value={searchCandidates}
-              onChange={(e) => setSearchCandidates(e.target.value)} />
-          </form>
-          {/* <IoSearchCircleSharp className='searchIcon'/> */}
-        
+        <form className='searchInput' onSubmit={(e) => e.preventDefault()}>
+          <input
+            // role='searchbox'
+            className='search'
+            type="text"
+            placeholder='Name | Phone | Email | Education'
+            value={searchCandidates}
+            onChange={(e) => setSearchCandidates(e.target.value)} />
+        </form>
         {candidates.length ? (
           <ListOfCandidates candidates={candidates} />
         ) : (
-          <p className='noItems'>Nista za prikaz</p>
+          <p className='noItems'>There is no candidates</p>
         )}
 
       </div>

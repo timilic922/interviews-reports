@@ -18,9 +18,7 @@
         nav {
             .navItem {
                 color: #D7DEEA;
-                p{
-                    padding: .8rem 1.2rem;
-                }
+                padding: .8rem 1.2rem;
             }
 
             a.navItem p:hover {
@@ -40,6 +38,75 @@
         border: none;
     }
 }
+
+// @media only screen and (max-width: 425px) {
+//     .sideBar {
+//         display: flex;
+//         flex-direction: row;
+//         width: 100%;
+//         background-color: #0E131B;
+//         color: #D7DEEA;
+//         padding: 1rem 1.5rem 1rem 1.5rem;
+//         .logo {
+//             display: none;
+//         }
+//         nav {
+//             display: flex;
+//             width: 100%;
+//             flex-direction: row;
+//             justify-content: space-between;
+//             a.navItem {
+//                 color: #D7DEEA;
+//                 display: flex;
+//                 flex-direction: column;
+//                 justify-content: center;
+//                 align-content: center;
+//                 .navIcon{
+//                     font-size: 1.3rem;
+//                     align-self: center;
+//                     margin-bottom: 5px;
+//                 }
+//             }   
+//         }
+//         .logOut {
+//             display: none;
+//         }
+//     }
+// }
+// @media only screen and (max-width: 768px) {
+//     .sideBar {
+//         display: flex;
+//         flex-direction: row;
+//         width: 100%;
+//         background-color: #0E131B;
+//         color: #D7DEEA;
+//         padding: 1rem 1.5rem 1rem 1.5rem;
+//         .logo {
+//             display: none;
+//         }
+//         nav {
+//             display: flex;
+//             width: 100%;
+//             flex-direction: row;
+//             justify-content: space-between;
+//             a.navItem {
+//                 color: #D7DEEA;
+//                 display: flex;
+//                 flex-direction: column;
+//                 justify-content: center;
+//                 align-content: center;
+//                 .navIcon{
+//                     font-size: 1.5rem;
+//                     align-self: center;
+//                     margin-bottom: 5px;
+//                 }
+//             }   
+//         }
+//         .logOut {
+//             display: none;
+//         }
+//     }
+// }
 
 // .navItem p{
 //     color:#E4E9F1;

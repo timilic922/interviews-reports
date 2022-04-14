@@ -34,7 +34,7 @@ function Admin() {
   const [editCandidateBirthday, setEditCandidateBirthday] = useState('');
   const [editCandidateTitle, setEditCandidateTitle] = useState('');
   const [editCandidateEmail, setEditCandidateEmail] = useState('');
-
+  const [candidateReports, setCandidateReports] = useState('[]')
   // companies
   const [companies, setCompanies] = useState([])
   const [searchCompanies, setSearchCompanies] = useState("");
@@ -43,16 +43,21 @@ function Admin() {
   const [newCompanyEmail, setNewCompanyEmail] = useState("")
   const [editCompanyName, setEditCompanyName] = useState('');
   const [editCompanyEmail, setEditCompanyEmail] = useState('');
+  const [newCompanyNumber, setNewCompanyNumber] = useState("")
+  const [newCompanyPIB, setNewCompanyPIB] = useState("")
+  const [newCompanyAddress, setNewCompanyAddress] = useState("")
+  const [newCompanyContact, setNewCompanyContact] = useState("")
 
   // reports
   const [reports, setReports] = useState([]);
-  const [searchReports, setSearchReports]=useState("");
-  const [searchReportsResults, setSearchReportsResults]=useState([])
+  const [searchReports, setSearchReports] = useState("");
+  const [searchReportsResults, setSearchReportsResults] = useState([])
   const [reportCandidate, setReportCandidate] = useState('');
   const [reportCompany, setReportCompany] = useState('');
   const [reportInterviewDate, setReportInterviewDdate] = useState('');
   const [reportPhase, setReportPhase] = useState('');
   const [reportStatus, setReportStatus] = useState('');
+  const [reportNotes, setReportNotes] = useState('');
 
   const history = useHistory();
 
@@ -117,7 +122,7 @@ function Admin() {
   // edit candidate
   const editCandidate = (id) => {
     const datetime = format(new Date(), 'MMMM dd, yyyy pp');
-    const updatedCandidate = { id, name: editCandidateName, img: editCandidateImg, birthday: editCandidateBirthday, title: editCandidateTitle, email: editCandidateEmail, datetime };
+    const updatedCandidate = { id, name: editCandidateName, img: editCandidateImg, birthday: editCandidateBirthday, title: editCandidateTitle, email: editCandidateEmail, reports: reports, datetime };
     console.log(updatedCandidate)
     fetch(`${API_CANDIDATES}/${id}`, {
       method: 'PUT',
@@ -132,7 +137,6 @@ function Admin() {
         history.push(`/admin/candidates/${id}`);
       });
   }
-
 
 
   // ***************************************************************************
@@ -159,7 +163,7 @@ function Admin() {
     e.preventDefault();
     const id = companies.length ? (companies[companies.length - 1].id + 1) : 1;
     const datetime = format(new Date(), 'MMMM dd, yyyy pp');
-    const newCompany = { id, name: newCompanyName, email: newCompanyEmail, datetime };
+    const newCompany = { id, name: newCompanyName, email: newCompanyEmail, number: newCompanyNumber, pib: newCompanyPIB, address: newCompanyAddress, contact: newCompanyContact, datetime };
     // console.log(newCompany)
     fetch(API_COMPANIES, {
       method: 'POST',
@@ -223,13 +227,25 @@ function Admin() {
       .then((response) => setReports(response))
   }, [])
 
+  // filter reports
+  useEffect(() => {
+    const filterResults = reports.filter(report =>
+      // ((report.candidate.name).toLowerCase()).includes(searchReports.toLowerCase())
+      // || ((report.company.name).toLowerCase()).includes(searchReports.toLowerCase())
+      // || 
+      ((report.status).toLowerCase()).includes(searchReports.toLowerCase())
+      || ((report.phase).toLowerCase()).includes(searchReports.toLowerCase()))
+    setSearchReportsResults(filterResults.reverse());
+  }, [reports, searchReports])
 
   // add new report
   const addReport = (e) => {
     e.preventDefault();
     const id = reports.length ? (reports[reports.length - 1].id + 1) : 1;
     const datetime = format(new Date(), 'MMMM dd, yyyy pp');
-    const newReport = { id, candidate: reportCandidate, company: reportCompany, phase: reportPhase, status: reportStatus, datetime };
+
+    const newReport = { id, candidate: reportCandidate, company: reportCompany, interviewDate: reportInterviewDate, phase: reportPhase, status: reportStatus, notes: reportNotes, datetime };
+
     console.log(newReport)
     fetch(API_REPORTS, {
       method: 'POST',
@@ -244,6 +260,22 @@ function Admin() {
         setReports(allReports);
         history.push('/admin/reports');
       });
+  }
+
+  // report delete
+  const reportDelete = (id) => {
+    fetch(`${API_REPORTS}/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then((res) => res.json())
+      .then(() => {
+        const reportList = reports.filter(report => report.id !== id);
+        setReports(reportList)
+      });
+    history.push("/admin/reports")
   }
 
 
@@ -266,10 +298,14 @@ function Admin() {
               candidateEmail={candidateEmail}
               setCandidateEmail={setCandidateEmail}
               addCandidate={addCandidate}
+
             />
           </Route>
           <Route exact path="/admin/candidates/:id">
-            <Candidate candidates={candidates} deleteCandidate={deleteCandidate} />
+            <Candidate
+              candidates={candidates}
+              deleteCandidate={deleteCandidate}
+              reports={reports} />
           </Route>
           <Route exact path="/admin/candidates">
             <Candidates
@@ -294,8 +330,7 @@ function Admin() {
               editCandidate={editCandidate}
             />
           </Route>
-          
-
+          {/* COMPANIES */}
           <Route exact path="/admin/companies/new">
             <AddNewCompany
               addCompany={addCompany}
@@ -303,6 +338,14 @@ function Admin() {
               setNewCompanyName={setNewCompanyName}
               newCompanyEmail={newCompanyEmail}
               setNewCompanyEmail={setNewCompanyEmail}
+              newCompanyNumber={newCompanyNumber}
+              setNewCompanyNumber={setNewCompanyNumber}
+              newCompanyPIB={newCompanyPIB}
+              setNewCompanyPIB={setNewCompanyPIB}
+              newCompanyAddress={newCompanyAddress}
+              setNewCompanyAddress={setNewCompanyAddress}
+              newCompanyContact={newCompanyContact}
+              setNewCompanyContact={setNewCompanyContact}
             />
           </Route>
           <Route exact path="/admin/companies/edit/:id">
@@ -317,28 +360,36 @@ function Admin() {
             />
           </Route>
           <Route exact path="/admin/companies/:id">
-            <Company 
-            companies={companies}
-            setCompanies={setCompanies}
-            companyDelete={companyDelete}
+            <Company
+              companies={companies}
+              companyDelete={companyDelete}
+              reports={reports}
             />
           </Route>
           <Route exact path="/admin/companies">
-            <Companies 
-            companies={searchCompaniesResults}
-            searchCompanies={searchCompanies}
-            setSearchCompanies={setSearchCompanies}
+            <Companies
+              companies={searchCompaniesResults}
+              searchCompanies={searchCompanies}
+              setSearchCompanies={setSearchCompanies}
             />
           </Route>
-
+          {/* REPORTS */}
           <Route exact path="/admin/reports">
             <Reports
-              // candidates
+              // candidates & companies
               candidates={searchCandidatesResults}
               searchCandidates={searchCandidates}
               setSearchCandidates={setSearchCandidates}
+              companies={searchCompaniesResults}
+              searchCompanies={searchCompanies}
+              setSearchCompanies={setSearchCompanies}
               // reports
               reports={reports}
+              setReports={setReports}
+              searchReports={searchReports}
+              setSearchReports={setSearchReports}
+              searchReportsResults={searchReportsResults}
+              setSearchReportsResults={setSearchReportsResults}
               reportCandidate={reportCandidate}
               setReportCandidate={setReportCandidate}
               reportCompany={reportCompany}
@@ -349,11 +400,16 @@ function Admin() {
               setReportPhase={setReportPhase}
               reportStatus={reportStatus}
               setReportStatus={setReportStatus}
+              reportNotes={reportNotes}
+              setReportNotes={setReportNotes}
               addReport={addReport}
             />
           </Route>
           <Route exact path="/admin/reports/:id">
-            <Report />
+            <Report
+              reports={reports}
+              reportsDelete={reportDelete}
+            />
           </Route>
 
         </Switch>

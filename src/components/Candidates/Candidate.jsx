@@ -1,7 +1,8 @@
 import { Link, useParams } from 'react-router-dom';
+import ListOfCandidateReports from './CandidateReports/ListOfCandidateReports';
 import { IoCalendarOutline, IoArrowBackCircleOutline } from "react-icons/io5";
 
-const Candidate = ({ candidates, deleteCandidate }) => {
+const Candidate = ({ candidates, deleteCandidate, reports }) => {
   const { id } = useParams();
   const candidate = candidates.find(candidate => (candidate.id).toString() === id);
 
@@ -18,7 +19,7 @@ const Candidate = ({ candidates, deleteCandidate }) => {
             <span>{candidate.datetime}</span>
           </div>
           <div className='btns'>
-            <button onClick={() => deleteCandidate(candidate.id)}>Delete</button>
+            <button className='btn' onClick={() => deleteCandidate(candidate.id)}>Delete</button>
             <Link to={`/admin/candidates/edit/${id}`} className='btn'>
               Edit
             </Link>
@@ -37,8 +38,10 @@ const Candidate = ({ candidates, deleteCandidate }) => {
               <p>email: {candidate.email}</p>
             </div>
           </div>
-
+          
+          
         }
+        <ListOfCandidateReports id={candidate.id} reports={reports} />
       </div>
     </div>
   )

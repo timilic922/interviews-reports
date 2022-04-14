@@ -4,9 +4,14 @@ import StepTwo from './StepTwo';
 import StepThree from './StepThree';
 
 const AddNewReport = ({
+  reports,
+  setReports,
   candidates,
   searchCandidates,
   setSearchCandidates,
+  companies,
+  searchCompanies,
+  setSearchCompanies,
   reportCandidate,
   setReportCandidate,
   reportCompany,
@@ -17,6 +22,8 @@ const AddNewReport = ({
   setReportPhase,
   reportStatus,
   setReportStatus,
+  reportNotes,
+  setReportNotes,
   addReport
 }) => {
 
@@ -43,6 +50,9 @@ const AddNewReport = ({
       setReportCandidate={setReportCandidate}
     />,
     <StepTwo
+      companies={companies}
+      searchCompanies={searchCompanies}
+      setSearchCompanies={setSearchCompanies}
       handleNextStep={handleNextStep}
       handlePrevStep={handlePrevStep}
       reportCandidate={reportCandidate}
@@ -54,6 +64,8 @@ const AddNewReport = ({
       reportCandidate={reportCandidate}
       reportCompany={reportCompany}
       // reports
+      reports={reports}
+      setReports={setReports}
       setReportCandidate={setReportCandidate}
       setReportCompany={setReportCompany}
       reportInterviewDate={reportInterviewDate}
@@ -62,6 +74,8 @@ const AddNewReport = ({
       setReportPhase={setReportPhase}
       reportStatus={reportStatus}
       setReportStatus={setReportStatus}
+      reportNotes={reportNotes}
+      setReportNotes={setReportNotes}
       addReport={addReport}
     />
   ];

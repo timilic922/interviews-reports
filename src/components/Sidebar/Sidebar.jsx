@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./sidebar.scss";
+import { IoPeopleSharp, IoBusinessSharp, IoDocumentTextSharp } from "react-icons/io5";
+
 
 
 
@@ -14,20 +16,23 @@ function Sidebar() {
   };
   return (
     <aside className="sideBar">
-      <div className="sideBar-top">
-        <div className="logo" style={{color:'white'}}>logo</div>
+      <div className="logo" style={{color:'white'}}>logo</div>
+    
         <nav>
           <Link to="/admin/candidates" className="navItem">
-            <p>Canidates</p>
+            <IoPeopleSharp className="navIcon"/>
+            Canidates
           </Link>
           <Link to="/admin/companies" className="navItem">
-            <p>Companies</p>
+            <IoBusinessSharp className="navIcon"/>
+            Companies
           </Link>
           <Link to="/admin/reports" className="navItem">
-            <p>Reports</p>
+            <IoDocumentTextSharp className="navIcon"/>
+            Reports
           </Link>
         </nav>
-      </div>
+
       <Link className="logOut" to="/">
         {" "}
         <button className="logOut" onClick={logOut}>LogOut</button>
