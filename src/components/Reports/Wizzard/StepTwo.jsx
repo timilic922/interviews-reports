@@ -2,24 +2,25 @@ import React, { useState } from 'react';
 
 const StepTwo = ({ companies, searchCompanies, setSearchCompanies, reportCompany, setReportCompany, reportCandidate, handleNextStep, handlePrevStep }) => {
 
-    console.log('selected candidate:' + reportCandidate)
-    console.log('selected Company:' + reportCompany)
+    console.log('selected candidate:' + reportCandidate.name)
+    console.log('selected Company:' + reportCompany.name)
 
     return (
         <>
+        <div className="searchBox searchBox-m">
+            <form className='searchInput' onSubmit={(e) => e.preventDefault()}>
+                <input
+                    className='search'
+                    id='searchCompanies'
+                    type="text"
+                    placeholder='Name | Phone | Email | Education'
+                    value={searchCompanies}
+                    onChange={(e) => setSearchCompanies(e.target.value)} />
+            </form>
+            </div>
             {companies.length ? (
                 <form className='select' onSubmit={handleNextStep}>
                     <div className="searchBox">
-                        <form className='searchInput' onSubmit={(e) => e.preventDefault()}>
-                            <input
-                                className='search'
-                                id='searchCompanies'
-                                type="text"
-                                placeholder='Name | Phone | Email | Education'
-                                value={searchCompanies}
-                                onChange={(e) => setSearchCompanies(e.target.value)} />
-                        </form>
-                        {/* <IoSearchCircleSharp className='searchIcon' /> */}
                     </div>
                     <div className="select">
                         <select id="selectCandidate" name="selectCandidate" size="5">
@@ -33,8 +34,8 @@ const StepTwo = ({ companies, searchCompanies, setSearchCompanies, reportCompany
                                     }}>{company.name}</option>
                             ))}
                         </select>
-                        <div className="btns">
-                            <input type="button" className='btnWizzard btnWizzardNext' value={'Back'} onClick={handlePrevStep} />
+                        <div className="btn-container">
+                            <input type="button" className='btnWizzard btnWizzardBack' value={'< Back'} onClick={handlePrevStep} />
                             {reportCompany ? <input type="submit" className='btnWizzard btnWizzardNext' value={'Next'} /> : <input type="submit" className='btnWizzard btnWizzardNext_disabled' value={'Next'} disabled />}
                         </div>
 

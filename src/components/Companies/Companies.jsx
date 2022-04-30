@@ -4,20 +4,19 @@ import ListOfCompanies from './ListOfCompanis'
 
 const Companies = ({ searchCompanies, setSearchCompanies, companies }) => {
   return (
-    <div className='listAll'>
+    <div className='AllPage'>
       <div className="topBar">
         <h2>Companis</h2>
         <Link
           to="/admin/companies/new"
           className='LinkBtn'>
-          <div className='btn btnAddNew'> Add New Company</div>
+          <div className='btn btnAddNew'>add new</div>
         </Link>
       </div>
 
       <div className='container'>
         <form className='searchInput' onSubmit={(e) => e.preventDefault()}>
           <input
-            role='searchbox'
             className='search'
             type="text"
             id="search"

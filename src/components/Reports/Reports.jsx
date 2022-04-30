@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import Button from './Button'
 import AddNewReport from './Wizzard/AddNewReport'
 import ListOfReports from './ListOfReports';
+import {IoCloseOutline} from 'react-icons/io5';
 
 import './Wizzard/wizzard.scss';
 
@@ -17,8 +17,6 @@ const Reports = ({
   setSearchCompanies,
   searchReports,
   setSearchReports,
-  searchReportsResults,
-  setSearchReportsResults,
   reportCandidate,
   setReportCandidate,
   reportCompany,
@@ -31,28 +29,30 @@ const Reports = ({
   setReportStatus,
   reportNotes,
   setReportNotes,
-  addReport
+  addReport,
+  setShowAddReport,
+  showAddReport
 }) => {
 
-  const [showAddReport, setShowAddReport] = useState(false);
+  
 
   return (
-    <div className='reports'>
+    <div className='AllPage AllPage-report'>
       <div className="topBar">
         <h2>Reports</h2>
         <div>
-        {showAddReport ? (
-          <button className='btn btnClose' onClick={() => setShowAddReport(!showAddReport)}> Close Form </button>
+          {showAddReport ? (
+            <button className='btn btnClose' onClick={() => setShowAddReport(!showAddReport)}><IoCloseOutline/> Close Form </button>
           ) : (
-            <button className='btn btnAdd' onClick={() => setShowAddReport(!showAddReport)}> Add New Report </button>
+            <button className='btn btnAddReport' onClick={() => setShowAddReport(!showAddReport)}>new report</button>
           )
-        }
+          }
         </div>
       </div>
 
       {showAddReport &&
         <div className="container_newReport">
-          <h3>Add New Report</h3>
+          <h3 className='newReport_header'>Add New Report</h3>
           <AddNewReport
             reports={reports}
             setReports={setReports}
@@ -74,30 +74,30 @@ const Reports = ({
             setReportStatus={setReportStatus}
             reportNotes={reportNotes}
             setReportNotes={setReportNotes}
+            showAddReport={showAddReport}
+            setShowAddReport={setShowAddReport}
             addReport={addReport}
           />
         </div>
       }
       {!showAddReport &&
-        <div className="listAll">
-          <div className='container'>
-            <form className='searchInput' onSubmit={(e) => e.preventDefault()}>
-              <input
-                // role='searchbox'
-                className='search'
-                type="text"
-                id="search"
-                placeholder='Company | Candidate | phase | status'
-                value={searchReports}
-                onChange={(e) => {
-                  setSearchReports(e.target.value)}} />
-            </form>
-            {reports.length ? (
-              <ListOfReports reports={reports} />
-            ) : (
-              <p className='noItems'>There is no reports</p>
-            )}
-          </div>
+        <div className='container'>
+          <form className='searchInput' onSubmit={(e) => e.preventDefault()}>
+            <input
+              className='search'
+              type="text"
+              id="search"
+              placeholder='Company | Candidate | phase | status'
+              value={searchReports}
+              onChange={(e) => {
+                setSearchReports(e.target.value)
+              }} />
+          </form>
+          {reports.length ? (
+            <ListOfReports reports={reports} />
+          ) : (
+            <p className='noItems'>There is no reports</p>
+          )}
         </div>
       }
     </div>

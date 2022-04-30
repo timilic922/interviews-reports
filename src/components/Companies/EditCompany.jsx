@@ -1,22 +1,27 @@
-import {useEffect} from "react"
-import { useParams } from "react-router-dom";
+import { useEffect } from "react"
+import { useParams, Link } from "react-router-dom";
+import { IoArrowBackCircleOutline } from 'react-icons/io5'
 
-const EditCompany = ({editCompany, companies, setCompanies, editCompanyName,
-    setEditCompanyName, editCompanyEmail, setEditCompanyEmail}) => {
-      const { id } = useParams();
-      const company = companies.find(company => (company.id).toString() === id);
-    useEffect(() => {
-        if (company) {
-        setEditCompanyName(company.name)
-        setEditCompanyEmail(company.email)
-        }
-      }, [company, setEditCompanyName, setEditCompanyEmail])
-      return (
+const EditCompany = ({ editCompany, companies, setCompanies, editCompanyName,
+  setEditCompanyName, editCompanyEmail, setEditCompanyEmail }) => {
+  const { id } = useParams();
+  const company = companies.find(company => (company.id).toString() === id);
+  useEffect(() => {
+    if (company) {
+      setEditCompanyName(company.name)
+      setEditCompanyEmail(company.email)
+    }
+  }, [company, setEditCompanyName, setEditCompanyEmail])
+
+  return (
     <>
       <div className="topBar">
+        <Link to="/admin/candidates" className='btnBack'>
+          <IoArrowBackCircleOutline className='btnBack-icon' /><h6>Candidates</h6>
+        </Link>
         <h2>Add New Candidate</h2>
       </div>
-      <div className="container">
+      <div className="container containerInputs">
         <form
           className='addNew'
           onSubmit={e => e.preventDefault()}
@@ -31,7 +36,7 @@ const EditCompany = ({editCompany, companies, setCompanies, editCompanyName,
               onChange={(e) => setEditCompanyName(e.target.value)}
             />
           </div>
-          <div className='candidateEmail'>
+          <div className='formControl'>
             <label htmlFor="">Email</label>
             <input
               id='companyEmail'
@@ -41,7 +46,7 @@ const EditCompany = ({editCompany, companies, setCompanies, editCompanyName,
               onChange={(e) => setEditCompanyEmail(e.target.value)}
             />
           </div>
-          <button type='submit' onClick={() => editCompany(company.id)} >Save Company</button>
+          <button type='submit' className="btn btnSave"  onClick={() => editCompany(company.id)} >Save Company</button>
         </form>
       </div>
     </>

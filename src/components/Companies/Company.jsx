@@ -8,10 +8,10 @@ const Company = ({ companies, companyDelete, reports }) => {
 
 
   return (
-    <div className='SinglePage'>
+    <div className='singlePage'>
       <div className="topBar">
         <Link to="/admin/companies" className='btnBack'>
-          <IoArrowBackCircleOutline /><h6>Companies</h6>
+          <IoArrowBackCircleOutline className='btnBack-icon'/><h6>Companies</h6>
         </Link>
 
         <div className='options'>
@@ -22,7 +22,7 @@ const Company = ({ companies, companyDelete, reports }) => {
           <div className='btns'>
           {/* <button className='btn btnDelete' style={{backgroundColor:'#7A0101', color:'white'}} onClick={() => companyDelete(company.id)}>Delete</button> */}
             <button className='btn btnDelete' onClick={() => companyDelete(company.id)}>Delete</button>
-            <Link to={`/admin/companies/edit/${id}`} className='btn'>
+            <Link to={`/admin/companies/edit/${id}`} className='btn btnEdit'>
             <button>Edit</button>
             </Link>
           </div>
@@ -31,10 +31,14 @@ const Company = ({ companies, companyDelete, reports }) => {
 
       <div className='info'>
         {company && 
-          <div className='showInfo'>
+          <div id="showInfoCompany" className='showInfo '>
             <div className="showInfo-data">
               <h4>{company.name}</h4>
               <p>email: {company.email}</p>
+              <p>pib: {company.pib}</p>
+              <p>address: {company.address}</p>
+              <p>contact: {company.contact}</p>
+              <p>number: {company.number}</p>
             </div>
           </div>
         }

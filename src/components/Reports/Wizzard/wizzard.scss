@@ -14,18 +14,25 @@
 
     select {
       width: 480px;
-      font-size: .8rem;
+      font-size: 1rem;
 
       option {
         padding: 10px 15px;
+        font-size: 1rem;
+        background-color: transparent;
+      }
+
+      option:active {
+        background-color: rgba(228, 233, 241, 0.2);
       }
 
       option:hover {
-        background-color: purple;
+        background-color: rgba(228, 233, 241, 0.2);
       }
 
       option:checked {
-        background-color: yellow;
+        background-color: #186354;
+        color: #D7DEEA;
       }
     }
   }
@@ -98,7 +105,7 @@ input.btnWizzard-Next_disabled {
 }
 
 .addNew-report {
-  margin-top: 2.5rem;
+  margin-top: 1.5rem;
   font-size: .9rem;
 
   .formControl {
@@ -124,5 +131,22 @@ input.btnWizzard-Next_disabled {
     }
   }
 }
+}
+
+button.btn.btnClose {
+  display: flex;
+  align-items: center;
+  background-color: #DC2E39;
+  color: white;
+  border:0;
+  svg{
+font-size: 20px;
+stroke: white;
+  }
+}
+button.btn.btnAddReport{
+  background-color: #087B9B;
+  color: white;
+  border:0
 }
 

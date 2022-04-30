@@ -1,5 +1,6 @@
 import { useEffect, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
+import { IoArrowBackCircleOutline } from 'react-icons/io5'
 
 
 const EditCandidate = ({ editCandidate, candidates, editCandidateName, setEditCandidateName, editCandidateImg, setEditCandidateImg, editCandidateBirthday, setEditCandidateBirthday, editCandidateTitle, setEditCandidateTitle, editCandidateEmail, setEditCandidateEmail }) => {
@@ -21,9 +22,12 @@ const EditCandidate = ({ editCandidate, candidates, editCandidateName, setEditCa
   return (
     <>
       <div className="topBar">
-        <h2>Add New Candidate</h2>
+      <Link to="/admin/candidates" className='btnBack'>
+          <IoArrowBackCircleOutline className='btnBack-icon'/><h6>Candidates</h6>
+        </Link>
+        <h2>Edit Candidate Info</h2>
       </div>
-      <div className="container">
+      <div className="container containerInputs">
         <form
           className='addNew'
           onSubmit={e => e.preventDefault()}
@@ -43,7 +47,6 @@ const EditCandidate = ({ editCandidate, candidates, editCandidateName, setEditCa
 
           <div className='formControl'>
             <label htmlFor="candidateImg">Candidate Img:
-              <span>please use url</span>
             </label>
             <input
               id='candidateImg'
@@ -75,7 +78,7 @@ const EditCandidate = ({ editCandidate, candidates, editCandidateName, setEditCa
               onChange={(e) => setEditCandidateTitle(e.target.value)}
             />
           </div>
-          <div className='candidateEmail'>
+          <div className='formControl'>
             <label htmlFor="">Email</label>
             <input
               id='candidateEmail'
@@ -85,7 +88,7 @@ const EditCandidate = ({ editCandidate, candidates, editCandidateName, setEditCa
               onChange={(e) => setEditCandidateEmail(e.target.value)}
             />
           </div>
-          <button type='submit' onClick={() => editCandidate(candidate.id)} >Save Candidate</button>
+          <button type='submit' className="btn btnSave" onClick={() => editCandidate(candidate.id)} >Save Candidate</button>
 
         </form>
       </div>

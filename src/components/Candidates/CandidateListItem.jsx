@@ -5,7 +5,7 @@ const CandidateListItem = ({ candidate }) => {
   const { url } = useRouteMatch();
   return (
     <Link to={`${url}/${candidate.id}`} className="ListItem">
-      <h4>{candidate.name}</h4>
+      <h4>&bull; {candidate.name}</h4>
       <p>{candidate.title}</p>
     </Link>
   )

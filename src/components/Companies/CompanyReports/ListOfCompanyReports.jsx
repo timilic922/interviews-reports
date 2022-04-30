@@ -10,10 +10,9 @@ function ListOfCompanyReports({ id, reports }) {
     return (
 
         <div className="CandidateReports">
-            <div className="listAll">
-                
-                <div className='container'>
-                <p className='reportsFor'>Reports</p>
+        <div className="listAll">
+            <div className='container'>
+            <h5 className='reportsFor'>Reports</h5>
                     {companyReports.map((e) => (
                         <CompanyReportsListItem key={e.id} report={e} />
                     ))}

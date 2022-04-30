@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-import { IoCalendarOutline, IoArrowBackCircleOutline } from "react-icons/io5";
+import { IoCalendarOutline, IoArrowBackCircleOutline, IoChevronForwardOutline } from "react-icons/io5";
 
 const Report = ({ reports, reportsDelete }) => {
   const { id } = useParams();
@@ -7,10 +7,10 @@ const Report = ({ reports, reportsDelete }) => {
   const report = reports.find(report => (report.id).toString() == id);
 
   return (
-    <div className='SinglePage'>
-      <div className="topBar">
+    <div className='singlePage'>
+    <div className="topBar">
         <Link to="/admin/reports" className='btnBack'>
-          <IoArrowBackCircleOutline /><h6>Reports</h6>
+          <IoArrowBackCircleOutline className='btnBack-icon'/><h6>Reports</h6>
         </Link>
 
         <div className='options'>
@@ -19,22 +19,22 @@ const Report = ({ reports, reportsDelete }) => {
             <span>{report.datetime}</span>
           </div>
           <div className='btns'>
-            <button className='btn' onClick={() => reportsDelete(report.id)}>Delete</button>
+            <button className='btn btnDelete' onClick={() => reportsDelete(report.id)}>Delete</button>
           </div>
         </div>
       </div>
       <div className='info'>
         {report &&
-          <div className='showInfo'>
+          <div id="showInfoCompany" className='showInfo'>
             <div className="showInfo-data">
               <h4><span>company: </span><Link to={`/admin/companies/${report.company.id}`}>{report.company.name}</Link></h4>
               <h4><span>candidate: </span><Link to={`/admin/candidates/${report.candidate.id}`}>{report.candidate.name}</Link></h4>
               <div className="line"></div>
               <div className="showInfo-data_report">
-                <p><IoCalendarOutline className='showInfo-data_icon' /> Interview Date:{report.interviewDate}</p>
-                <p>phase: {report.phase}</p>
-                <p>status: {report.status}</p>
-                <p>additional notes: {report.notes}</p>
+                <p><b>Date: </b><span className="interview-info">{report.interviewDate}</span></p>
+                <p><b>Phase: </b><span className="interview-info">{report.phase}</span></p>
+                <p><b>Status: </b><span className="interview-info">{report.status}</span></p>
+                <p id="reportNotes"><b>Notes:</b><span className="interview-info">{report.notes}</span></p>
               </div>
             </div>
           </div>

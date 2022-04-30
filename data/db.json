@@ -1,190 +1,221 @@
 {
   "candidates": [
     {
-      "id": 0,
-      "name": "neka smaracica ",
-      "birthday": "2022-04-20",
-      "title": "profeson",
-      "email": "nekasmaracica@dayrep.com",
-      "datetime": "April 12, 2022 8:29:48 PM"
-    },
-    {
       "id": 1,
-      "name": "Brad Pitt",
-      "birthday": "2022-04-03",
-      "title": "frontend car",
-      "email": "noasdas@sad.com",
-      "datetime": "April 12, 2022 10:19:09 PM"
+      "name": "Linda Pearce",
+      "img": "https://images.generated.photos/U85AKTDW9e0GiTMkQkh_0NWe1_ysP4K__-xKlxv0seM/rs:fit:512:512/wm:0.95:sowe:18:18:0.33/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/MDcyOTU4LmpwZw.jpg",
+      "birthday": "1988-01-11",
+      "title": "doctor",
+      "email": "pearce@jourrapide.com",
+      "datetime": "April 15, 2022 4:19:36 PM"
     },
     {
       "id": 2,
-      "name": "asdadas",
-      "birthday": "2022-04-04",
-      "title": "dasds",
-      "email": "asdasda",
-      "datetime": "April 12, 2022 8:34:32 PM"
+      "name": "Beth Chasse",
+      "img": "https://images.generated.photos/T3C1hz8sEqNhPxozh4Gf5ifQiGf_HrZY8Hc_0TgmMHg/rs:fit:512:512/wm:0.95:sowe:18:18:0.33/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/NzI5Njg5LmpwZw.jpg",
+      "birthday": "2022-04-03",
+      "title": "professor",
+      "email": "bhse@dayrep.com",
+      "datetime": "April 15, 2022 4:21:35 PM"
     },
     {
       "id": 3,
-      "name": "NIJE VISE SMARACICA",
-      "birthday": "2022-03-31",
-      "title": "frontend car",
-      "email": "asdasda",
-      "datetime": "April 13, 2022 3:59:26 PM"
+      "name": "Kelly Pierson",
+      "img": "https://images.generated.photos/r-lvBy7jjDiZi4a6OHpLngB0Wg2lJ6tfCejs5810Vwc/rs:fit:512:512/wm:0.95:sowe:18:18:0.33/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/MTI2MzYxLmpwZw.jpg",
+      "birthday": "1988-01-25",
+      "title": "mechanic",
+      "email": "kierson@gmail.com",
+      "datetime": "April 15, 2022 4:23:46 PM"
+    },
+    {
+      "id": 4,
+      "name": "Herman Curtis",
+      "img": "https://images.generated.photos/kvsjVVf16PNK3ieR2n8V-H0VVIh7ANxL2KVNhFGl-R0/rs:fit:256:256/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/MjI5MjY3LmpwZw.jpg",
+      "birthday": "1984-06-15",
+      "title": "dentist",
+      "email": "curdent@smile.com",
+      "reports": [
+        {
+          "id": 1,
+          "candidate": {
+            "id": 3,
+            "name": "Kelly Pierson",
+            "img": "https://images.generated.photos/r-lvBy7jjDiZi4a6OHpLngB0Wg2lJ6tfCejs5810Vwc/rs:fit:512:512/wm:0.95:sowe:18:18:0.33/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/MTI2MzYxLmpwZw.jpg",
+            "birthday": "1988-01-25",
+            "title": "mechanic",
+            "email": "kierson@gmail.com",
+            "datetime": "April 15, 2022 4:23:46 PM"
+          },
+          "company": {
+            "id": 2,
+            "name": "Samsung",
+            "email": "info@samsung.com",
+            "number": "32465847651",
+            "pib": "54987651321",
+            "address": "Uskocka 8, centar",
+            "contact": "Bozidar Lukic Boza Boki",
+            "datetime": "April 15, 2022 4:32:03 PM"
+          },
+          "interviewDate": "2022-04-06",
+          "phase": "hr",
+          "status": "declined",
+          "notes": " ",
+          "datetime": "April 15, 2022 4:40:32 PM"
+        },
+        {
+          "id": 2,
+          "candidate": {
+            "id": 3,
+            "name": "Kelly Pierson",
+            "img": "https://images.generated.photos/r-lvBy7jjDiZi4a6OHpLngB0Wg2lJ6tfCejs5810Vwc/rs:fit:512:512/wm:0.95:sowe:18:18:0.33/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/MTI2MzYxLmpwZw.jpg",
+            "birthday": "1988-01-25",
+            "title": "mechanic",
+            "email": "kierson@gmail.com",
+            "datetime": "April 15, 2022 4:23:46 PM"
+          },
+          "company": {
+            "id": 1,
+            "name": "Delta Holding",
+            "email": "infor@delta.com",
+            "number": "12365489",
+            "pib": "2348932135",
+            "address": "Bezanijska",
+            "contact": "Miroslav pr",
+            "datetime": "April 15, 2022 4:26:39 PM"
+          },
+          "interviewDate": "2022-03-29",
+          "phase": "tech",
+          "status": "passed",
+          "notes": "Massa tincidunt dui ut ornare lectus sit. Morbi blandit cursus risus at ultrices mi tempus imperdiet. Nunc lobortis mattis aliquam faucibus. Aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis. Quam lacus suspendisse faucibus interdum posuere lorem ipsum. Nisi lacus sed viverra tellus in hac habitasse. Est ante in nibh mauris cursus mattis. ",
+          "datetime": "April 15, 2022 4:48:35 PM"
+        },
+        {
+          "id": 3,
+          "candidate": {
+            "id": 4,
+            "name": "Herman Curtis",
+            "img": "https://generated.photos/face/joyful-latino-young-adult-male-with-short-black-hair-and-brown-eyes--5e68033f6d3b380006d4270b",
+            "birthday": "1984-06-15",
+            "title": "dentist",
+            "email": "curdent@smile.com",
+            "datetime": "April 15, 2022 4:24:43 PM"
+          },
+          "company": {
+            "id": 1,
+            "name": "Delta Holding",
+            "email": "infor@delta.com",
+            "number": "12365489",
+            "pib": "2348932135",
+            "address": "Bezanijska",
+            "contact": "Miroslav pr",
+            "datetime": "April 15, 2022 4:26:39 PM"
+          },
+          "interviewDate": "2022-03-29",
+          "phase": "tech",
+          "status": "declined",
+          "notes": "Dolor purus non enim praesent elementum facilisis. Venenatis cras sed felis eget velit aliquet sagittis. Vitae tortor condimentum lacinia quis vel eros donec ac odio. Faucibus et molestie ac feugiat sed lectus vestibulum mattis ullamcorper. Pellentesque habitant morbi tristique senectus et netus et malesuada. Turpis egestas integer eget aliquet nibh praesent tristique magna. ",
+          "datetime": "April 15, 2022 4:54:57 PM"
+        }
+      ],
+      "datetime": "April 15, 2022 5:44:56 PM"
     }
   ],
   "companies": [
     {
-      "id": 34149463,
-      "name": "Wintheiser - Padberg",
-      "email": "Carolina.Ryan@gmail.com"
+      "id": 1,
+      "name": "Delta Holding",
+      "email": "infor@delta.com",
+      "number": "12365489",
+      "pib": "2348932135",
+      "address": "Bezanijska",
+      "contact": "Miroslav pr",
+      "datetime": "April 15, 2022 4:26:39 PM"
     },
     {
-      "id": 11081915,
-      "name": "Krajcik Inc",
-      "email": "Miguel.Veum@yahoo.com"
+      "id": 2,
+      "name": "Samsung",
+      "email": "info@samsung.com",
+      "number": "32465847651",
+      "pib": "54987651321",
+      "address": "Uskocka 8, centar",
+      "contact": "Bozidar Lukic Boza Boki",
+      "datetime": "April 15, 2022 4:32:03 PM"
     },
     {
-      "id": 41822931,
-      "name": "Leffler, Kulas and Schulist",
-      "email": "Genevieve.Flatley@yahoo.com"
+      "id": 3,
+      "name": "Coffein",
+      "email": "coffeinf@coffeind.com",
+      "number": "523456135",
+      "pib": "6584218",
+      "address": "Cara Lazara 13, Beograd",
+      "contact": "Jelena Ne Znamo Prezime",
+      "datetime": "April 15, 2022 4:34:25 PM"
     },
     {
-      "id": 35251209,
-      "name": "Konopelski - Romaguera",
-      "email": "Kian.Schimmel@gmail.com"
-    },
-    {
-      "id": 32220706,
-      "name": "Thompson, Grimes and Wolf",
-      "email": "Cayla.Kuphal54@yahoo.com"
-    },
-    {
-      "id": 32220707,
-      "name": " SOFTVER INZINJERING",
-      "email": "INFO@IVSI.CO.RS"
-    },
-    {
-      "id": 32220708,
-      "name": "IVAN I VANJA SOFTVER INZINJERING",
-      "email": "INFO@IVSI.CO.RS",
-      "datetime": "April 13, 2022 4:48:45 PM"
-    },
-    {
-      "id": 32220709,
-      "name": "123",
-      "email": "INFO@IVSI.CO.RS",
-      "number": "asd",
-      "pib": "dasd",
-      "address": "dasd",
-      "contact": "dasdas",
-      "datetime": "April 14, 2022 4:43:53 PM"
+      "id": 4,
+      "name": "Rolex",
+      "email": "samojako@rolex.jako",
+      "number": "12346854165",
+      "pib": "48984961321",
+      "address": "Marijane Gregoran 70/22",
+      "contact": "Ivan Timilic Rolex Roki",
+      "datetime": "April 15, 2022 4:35:10 PM"
     }
   ],
   "reports": [
     {
-      "id": 20,
-      "candidate": {
-        "id": 1,
-        "name": "Brad Pitt",
-        "birthday": "2022-04-03",
-        "title": "frontend car",
-        "email": "noasdas@sad.com",
-        "datetime": "April 12, 2022 10:19:09 PM"
-      },
-      "company": {
-        "id": 41822931,
-        "name": "Leffler, Kulas and Schulist",
-        "email": "Genevieve.Flatley@yahoo.com"
-      },
-      "interviewDate": "2022-04-04",
-      "phase": "hr",
-      "status": "passed",
-      "datetime": "April 14, 2022 8:20:10 AM"
-    },
-    {
-      "id": 21,
-      "candidate": {
-        "id": 1,
-        "name": "Brad Pitt",
-        "birthday": "2022-04-03",
-        "title": "frontend car",
-        "email": "noasdas@sad.com",
-        "datetime": "April 12, 2022 10:19:09 PM"
-      },
-      "company": {
-        "id": 35251209,
-        "name": "Konopelski - Romaguera",
-        "email": "Kian.Schimmel@gmail.com"
-      },
-      "interviewDate": "2022-04-05",
-      "phase": "tech",
-      "status": "passed",
-      "notes": "asdsadasdasdsadsadsadsad",
-      "datetime": "April 14, 2022 8:22:38 AM"
-    },
-    {
-      "id": 22,
+      "id": 1,
       "candidate": {
         "id": 3,
-        "name": "NIJE VISE SMARACICA",
-        "birthday": "2022-03-31",
-        "title": "frontend car",
-        "email": "asdasda",
-        "datetime": "April 13, 2022 3:59:26 PM"
+        "name": "Kelly Pierson",
+        "img": "https://images.generated.photos/r-lvBy7jjDiZi4a6OHpLngB0Wg2lJ6tfCejs5810Vwc/rs:fit:512:512/wm:0.95:sowe:18:18:0.33/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/MTI2MzYxLmpwZw.jpg",
+        "birthday": "1988-01-25",
+        "title": "mechanic",
+        "email": "kierson@gmail.com",
+        "datetime": "April 15, 2022 4:23:46 PM"
       },
       "company": {
-        "id": 35251209,
-        "name": "Konopelski - Romaguera",
-        "email": "Kian.Schimmel@gmail.com"
-      },
-      "interviewDate": "2022-04-05",
-      "phase": "final",
-      "status": "declined",
-      "notes": "asdsadasdasdsadsadsadsad",
-      "datetime": "April 14, 2022 8:54:06 AM"
-    },
-    {
-      "id": 23,
-      "candidate": {
-        "id": 3,
-        "name": "NIJE VISE SMARACICA",
-        "birthday": "2022-03-31",
-        "title": "frontend car",
-        "email": "asdasda",
-        "datetime": "April 13, 2022 3:59:26 PM"
-      },
-      "company": {
-        "id": 32220706,
-        "name": "Thompson, Grimes and Wolf",
-        "email": "Cayla.Kuphal54@yahoo.com"
-      },
-      "interviewDate": "2022-04-04",
-      "phase": "tech",
-      "status": "declined",
-      "notes": "adsa",
-      "datetime": "April 14, 2022 11:22:07 AM"
-    },
-    {
-      "id": 24,
-      "candidate": {
         "id": 2,
-        "name": "asdadas",
-        "birthday": "2022-04-04",
-        "title": "dasds",
-        "email": "asdasda",
-        "datetime": "April 12, 2022 8:34:32 PM"
+        "name": "Samsung",
+        "email": "info@samsung.com",
+        "number": "32465847651",
+        "pib": "54987651321",
+        "address": "Uskocka 8, centar",
+        "contact": "Bozidar Lukic Boza Boki",
+        "datetime": "April 15, 2022 4:32:03 PM"
+      },
+      "interviewDate": "2022-04-06",
+      "phase": "hr",
+      "status": "declined",
+      "notes": " ",
+      "datetime": "April 15, 2022 4:40:32 PM"
+    },
+    {
+      "id": 2,
+      "candidate": {
+        "id": 3,
+        "name": "Kelly Pierson",
+        "img": "https://images.generated.photos/r-lvBy7jjDiZi4a6OHpLngB0Wg2lJ6tfCejs5810Vwc/rs:fit:512:512/wm:0.95:sowe:18:18:0.33/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/MTI2MzYxLmpwZw.jpg",
+        "birthday": "1988-01-25",
+        "title": "mechanic",
+        "email": "kierson@gmail.com",
+        "datetime": "April 15, 2022 4:23:46 PM"
       },
       "company": {
-        "id": 41822931,
-        "name": "Leffler, Kulas and Schulist",
-        "email": "Genevieve.Flatley@yahoo.com"
+        "id": 1,
+        "name": "Delta Holding",
+        "email": "infor@delta.com",
+        "number": "12365489",
+        "pib": "2348932135",
+        "address": "Bezanijska",
+        "contact": "Miroslav pr",
+        "datetime": "April 15, 2022 4:26:39 PM"
       },
-      "interviewDate": "",
+      "interviewDate": "2022-03-29",
       "phase": "tech",
       "status": "passed",
-      "notes": "sad",
-      "datetime": "April 14, 2022 11:27:18 AM"
+      "notes": "Massa tincidunt dui ut ornare lectus sit. Morbi blandit cursus risus at ultrices mi tempus imperdiet. Nunc lobortis mattis aliquam faucibus. Aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis. Quam lacus suspendisse faucibus interdum posuere lorem ipsum. Nisi lacus sed viverra tellus in hac habitasse. Est ante in nibh mauris cursus mattis. ",
+      "datetime": "April 15, 2022 4:48:35 PM"
     }
   ]
 }

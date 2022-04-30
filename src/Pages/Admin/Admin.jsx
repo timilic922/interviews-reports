@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Route, Switch, useHistory } from "react-router-dom";
-import Sidebar from "../../components/Sidebar/Sidebar";
 import { format } from 'date-fns';
+import Sidebar from "../../components/Desktop/Sidebar/Sidebar";
+import Header from "../../components/Mobile/Header/Header";
+import Footer from "../../components/Mobile/Footer/Footer";
 // CANDIDATES
 import Candidates from '../../components/Candidates/Candidates';
 import Candidate from '../../components/Candidates/Candidate';
@@ -15,11 +17,13 @@ import EditCompany from "../../components/Companies/EditCompany";
 //REPORTS
 import Reports from '../../components/Reports/Reports'
 import Report from '../../components/Reports/Report'
-import AddNewReport from '../../components/Reports/Wizzard/AddNewReport'
+// import AddNewReport from '../../components/Reports/Wizzard/AddNewReport'
+
+import useWindowSize from "../../hooks/useWindowSize";
 
 import "./admin.scss";
 
-function Admin() {
+function Admin({setIsLogedIn}) {
   // candidates
   const [candidates, setCandidates] = useState([])
   const [searchCandidates, setSearchCandidates] = useState('');
@@ -34,7 +38,6 @@ function Admin() {
   const [editCandidateBirthday, setEditCandidateBirthday] = useState('');
   const [editCandidateTitle, setEditCandidateTitle] = useState('');
   const [editCandidateEmail, setEditCandidateEmail] = useState('');
-  const [candidateReports, setCandidateReports] = useState('[]')
   // companies
   const [companies, setCompanies] = useState([])
   const [searchCompanies, setSearchCompanies] = useState("");
@@ -47,7 +50,6 @@ function Admin() {
   const [newCompanyPIB, setNewCompanyPIB] = useState("")
   const [newCompanyAddress, setNewCompanyAddress] = useState("")
   const [newCompanyContact, setNewCompanyContact] = useState("")
-
   // reports
   const [reports, setReports] = useState([]);
   const [searchReports, setSearchReports] = useState("");
@@ -58,8 +60,11 @@ function Admin() {
   const [reportPhase, setReportPhase] = useState('');
   const [reportStatus, setReportStatus] = useState('');
   const [reportNotes, setReportNotes] = useState('');
+  const [showAddReport, setShowAddReport] = useState(false);
 
   const history = useHistory();
+
+  const { width } = useWindowSize();
 
   const API_CANDIDATES = 'http://localhost:3500/candidates';
   const API_COMPANIES = 'http://localhost:3500/companies';
@@ -98,6 +103,11 @@ function Admin() {
       .then(res => {
         console.log(res)
         const allCandidates = [...candidates, res];
+        setCandidateName('')
+        setCandidateImg('')
+        setCandidateBirthday('');
+        setCandidateBirthday('');
+        setCandidateEmail('');
         setCandidates(allCandidates);
         history.push('/admin/candidates');
       });
@@ -115,7 +125,7 @@ function Admin() {
       .then(() => {
         const candidatesList = candidates.filter(candidate => candidate.id !== id);
         setCandidates(candidatesList);
-        history.push('/admin/candidates');
+        history.push('/admin');
       });
   }
 
@@ -174,6 +184,12 @@ function Admin() {
     }).then(res => res.json())
       .then(res => {
         const allCompanies = [...companies, res];
+        setNewCompanyName('')
+        setNewCompanyAddress('')
+        setNewCompanyContact('')
+        setNewCompanyPIB('')
+        setNewCompanyNumber('')
+        setNewCompanyEmail('')
         setCompanies(allCompanies);
         history.push('/admin/companies');
       });
@@ -227,6 +243,8 @@ function Admin() {
       .then((response) => setReports(response))
   }, [])
 
+
+  // USE MEMO ()
   // filter reports
   useEffect(() => {
     const filterResults = reports.filter(report =>
@@ -245,8 +263,6 @@ function Admin() {
     const datetime = format(new Date(), 'MMMM dd, yyyy pp');
 
     const newReport = { id, candidate: reportCandidate, company: reportCompany, interviewDate: reportInterviewDate, phase: reportPhase, status: reportStatus, notes: reportNotes, datetime };
-
-    console.log(newReport)
     fetch(API_REPORTS, {
       method: 'POST',
       headers: {
@@ -258,7 +274,7 @@ function Admin() {
         console.log(res)
         const allReports = [...reports, res];
         setReports(allReports);
-        history.push('/admin/reports');
+        setShowAddReport(!showAddReport)
       });
   }
 
@@ -281,139 +297,291 @@ function Admin() {
 
   return (
     <div className="Admin">
-      <Sidebar />
-      <main>
-        <Switch>
+      {width < 992 ? (
+        <div className="mobile">
+          <Header />
+          <main>
+            <Switch>
 
-          <Route exact path="/admin/candidates/new">
-            <NewCandidate
-              candidateName={candidateName}
-              setCandidateName={setCandidateName}
-              candidateImg={candidateImg}
-              setCandidateImg={setCandidateImg}
-              candidateBirthday={candidateBirthday}
-              setCandidateBirthday={setCandidateBirthday}
-              candidateTitle={candidateTitle}
-              setCandidateTitle={setCandidateTitle}
-              candidateEmail={candidateEmail}
-              setCandidateEmail={setCandidateEmail}
-              addCandidate={addCandidate}
+              <Route exact path="/admin/candidates/new">
+                <NewCandidate
+                  candidateName={candidateName}
+                  setCandidateName={setCandidateName}
+                  candidateImg={candidateImg}
+                  setCandidateImg={setCandidateImg}
+                  candidateBirthday={candidateBirthday}
+                  setCandidateBirthday={setCandidateBirthday}
+                  candidateTitle={candidateTitle}
+                  setCandidateTitle={setCandidateTitle}
+                  candidateEmail={candidateEmail}
+                  setCandidateEmail={setCandidateEmail}
+                  addCandidate={addCandidate}
 
-            />
-          </Route>
-          <Route exact path="/admin/candidates/:id">
-            <Candidate
-              candidates={candidates}
-              deleteCandidate={deleteCandidate}
-              reports={reports} />
-          </Route>
-          <Route exact path="/admin/candidates">
-            <Candidates
-              candidates={searchCandidatesResults}
-              searchCandidates={searchCandidates}
-              setSearchCandidates={setSearchCandidates} />
-          </Route>
-          <Route exact path="/admin/candidates/edit/:id">
-            <EditCandidate
-              candidates={candidates}
-              setCandidates={setCandidates}
-              editCandidateName={editCandidateName}
-              setEditCandidateName={setEditCandidateName}
-              editCandidateImg={editCandidateImg}
-              setEditCandidateImg={setEditCandidateImg}
-              editCandidateBirthday={editCandidateBirthday}
-              setEditCandidateBirthday={setEditCandidateBirthday}
-              editCandidateTitle={editCandidateTitle}
-              setEditCandidateTitle={setEditCandidateTitle}
-              editCandidateEmail={editCandidateEmail}
-              setEditCandidateEmail={setEditCandidateEmail}
-              editCandidate={editCandidate}
-            />
-          </Route>
-          {/* COMPANIES */}
-          <Route exact path="/admin/companies/new">
-            <AddNewCompany
-              addCompany={addCompany}
-              newCompanyName={newCompanyName}
-              setNewCompanyName={setNewCompanyName}
-              newCompanyEmail={newCompanyEmail}
-              setNewCompanyEmail={setNewCompanyEmail}
-              newCompanyNumber={newCompanyNumber}
-              setNewCompanyNumber={setNewCompanyNumber}
-              newCompanyPIB={newCompanyPIB}
-              setNewCompanyPIB={setNewCompanyPIB}
-              newCompanyAddress={newCompanyAddress}
-              setNewCompanyAddress={setNewCompanyAddress}
-              newCompanyContact={newCompanyContact}
-              setNewCompanyContact={setNewCompanyContact}
-            />
-          </Route>
-          <Route exact path="/admin/companies/edit/:id">
-            <EditCompany
-              editCompany={editCompany}
-              companies={companies}
-              setCompanies={setCompanies}
-              editCompanyName={editCompanyName}
-              setEditCompanyName={setEditCompanyName}
-              editCompanyEmail={editCompanyEmail}
-              setEditCompanyEmail={setEditCompanyEmail}
-            />
-          </Route>
-          <Route exact path="/admin/companies/:id">
-            <Company
-              companies={companies}
-              companyDelete={companyDelete}
-              reports={reports}
-            />
-          </Route>
-          <Route exact path="/admin/companies">
-            <Companies
-              companies={searchCompaniesResults}
-              searchCompanies={searchCompanies}
-              setSearchCompanies={setSearchCompanies}
-            />
-          </Route>
-          {/* REPORTS */}
-          <Route exact path="/admin/reports">
-            <Reports
-              // candidates & companies
-              candidates={searchCandidatesResults}
-              searchCandidates={searchCandidates}
-              setSearchCandidates={setSearchCandidates}
-              companies={searchCompaniesResults}
-              searchCompanies={searchCompanies}
-              setSearchCompanies={setSearchCompanies}
-              // reports
-              reports={reports}
-              setReports={setReports}
-              searchReports={searchReports}
-              setSearchReports={setSearchReports}
-              searchReportsResults={searchReportsResults}
-              setSearchReportsResults={setSearchReportsResults}
-              reportCandidate={reportCandidate}
-              setReportCandidate={setReportCandidate}
-              reportCompany={reportCompany}
-              setReportCompany={setReportCompany}
-              reportInterviewDate={reportInterviewDate}
-              setReportInterviewDdate={setReportInterviewDdate}
-              reportPhase={reportPhase}
-              setReportPhase={setReportPhase}
-              reportStatus={reportStatus}
-              setReportStatus={setReportStatus}
-              reportNotes={reportNotes}
-              setReportNotes={setReportNotes}
-              addReport={addReport}
-            />
-          </Route>
-          <Route exact path="/admin/reports/:id">
-            <Report
-              reports={reports}
-              reportsDelete={reportDelete}
-            />
-          </Route>
+                />
+              </Route>
+              <Route exact path="/admin/candidates/:id">
+                <Candidate
+                  candidates={candidates}
+                  deleteCandidate={deleteCandidate}
+                  reports={reports} />
+              </Route>
+              <Route exact path="/admin/candidates">
+                <Candidates
+                  candidates={searchCandidatesResults}
+                  searchCandidates={searchCandidates}
+                  setSearchCandidates={setSearchCandidates} />
+              </Route>
+              <Route exact path="/admin/candidates/edit/:id">
+                <EditCandidate
+                  candidates={candidates}
+                  setCandidates={setCandidates}
+                  editCandidateName={editCandidateName}
+                  setEditCandidateName={setEditCandidateName}
+                  editCandidateImg={editCandidateImg}
+                  setEditCandidateImg={setEditCandidateImg}
+                  editCandidateBirthday={editCandidateBirthday}
+                  setEditCandidateBirthday={setEditCandidateBirthday}
+                  editCandidateTitle={editCandidateTitle}
+                  setEditCandidateTitle={setEditCandidateTitle}
+                  editCandidateEmail={editCandidateEmail}
+                  setEditCandidateEmail={setEditCandidateEmail}
+                  editCandidate={editCandidate}
+                />
+              </Route>
+              {/* COMPANIES */}
+              <Route exact path="/admin/companies/new">
+                <AddNewCompany
+                  addCompany={addCompany}
+                  newCompanyName={newCompanyName}
+                  setNewCompanyName={setNewCompanyName}
+                  newCompanyEmail={newCompanyEmail}
+                  setNewCompanyEmail={setNewCompanyEmail}
+                  newCompanyNumber={newCompanyNumber}
+                  setNewCompanyNumber={setNewCompanyNumber}
+                  newCompanyPIB={newCompanyPIB}
+                  setNewCompanyPIB={setNewCompanyPIB}
+                  newCompanyAddress={newCompanyAddress}
+                  setNewCompanyAddress={setNewCompanyAddress}
+                  newCompanyContact={newCompanyContact}
+                  setNewCompanyContact={setNewCompanyContact}
+                />
+              </Route>
+              <Route exact path="/admin/companies/edit/:id">
+                <EditCompany
+                  editCompany={editCompany}
+                  companies={companies}
+                  setCompanies={setCompanies}
+                  editCompanyName={editCompanyName}
+                  setEditCompanyName={setEditCompanyName}
+                  editCompanyEmail={editCompanyEmail}
+                  setEditCompanyEmail={setEditCompanyEmail}
+                />
+              </Route>
+              <Route exact path="/admin/companies/:id">
+                <Company
+                  companies={companies}
+                  companyDelete={companyDelete}
+                  reports={reports}
+                />
+              </Route>
+              <Route exact path="/admin/companies">
+                <Companies
+                  companies={searchCompaniesResults}
+                  searchCompanies={searchCompanies}
+                  setSearchCompanies={setSearchCompanies}
+                />
+              </Route>
+              {/* REPORTS */}
+              <Route exact path="/admin/reports">
+                <Reports
+                  // candidates & companies
+                  candidates={searchCandidatesResults}
+                  searchCandidates={searchCandidates}
+                  setSearchCandidates={setSearchCandidates}
+                  companies={searchCompaniesResults}
+                  searchCompanies={searchCompanies}
+                  setSearchCompanies={setSearchCompanies}
+                  // reports
+                  reports={reports}
+                  setReports={setReports}
+                  searchReports={searchReports}
+                  setSearchReports={setSearchReports}
+                  searchReportsResults={searchReportsResults}
+                  setSearchReportsResults={setSearchReportsResults}
+                  reportCandidate={reportCandidate}
+                  setReportCandidate={setReportCandidate}
+                  reportCompany={reportCompany}
+                  setReportCompany={setReportCompany}
+                  reportInterviewDate={reportInterviewDate}
+                  setReportInterviewDdate={setReportInterviewDdate}
+                  reportPhase={reportPhase}
+                  setReportPhase={setReportPhase}
+                  reportStatus={reportStatus}
+                  setReportStatus={setReportStatus}
+                  reportNotes={reportNotes}
+                  setReportNotes={setReportNotes}
+                  addReport={addReport}
+                  // setShowAddReport(!showAddReport)
+                  showAddReport={showAddReport}
+                  setShowAddReport={setShowAddReport}
+                />
+              </Route>
+              <Route exact path="/admin/reports/:id">
+                <Report
+                  reports={reports}
+                  reportsDelete={reportDelete}
+                />
+              </Route>
 
-        </Switch>
-      </main>
+            </Switch>
+          </main>
+          <Footer />
+        </div>
+      ) : (
+        <div className="dekstop">
+          <Sidebar setIsLogedIn={setIsLogedIn} />
+          <main>
+            <Switch>
+
+              <Route exact path="/admin/candidates/new">
+                <NewCandidate
+                  candidateName={candidateName}
+                  setCandidateName={setCandidateName}
+                  candidateImg={candidateImg}
+                  setCandidateImg={setCandidateImg}
+                  candidateBirthday={candidateBirthday}
+                  setCandidateBirthday={setCandidateBirthday}
+                  candidateTitle={candidateTitle}
+                  setCandidateTitle={setCandidateTitle}
+                  candidateEmail={candidateEmail}
+                  setCandidateEmail={setCandidateEmail}
+                  addCandidate={addCandidate}
+
+                />
+              </Route>
+              <Route exact path="/admin/candidates/:id">
+                <Candidate
+                  candidates={candidates}
+                  deleteCandidate={deleteCandidate}
+                  reports={reports} />
+              </Route>
+              <Route exact path="/admin/candidates">
+                <Candidates
+                  candidates={searchCandidatesResults}
+                  searchCandidates={searchCandidates}
+                  setSearchCandidates={setSearchCandidates} />
+              </Route>
+              <Route exact path="/admin/candidates/edit/:id">
+                <EditCandidate
+                  candidates={candidates}
+                  setCandidates={setCandidates}
+                  editCandidateName={editCandidateName}
+                  setEditCandidateName={setEditCandidateName}
+                  editCandidateImg={editCandidateImg}
+                  setEditCandidateImg={setEditCandidateImg}
+                  editCandidateBirthday={editCandidateBirthday}
+                  setEditCandidateBirthday={setEditCandidateBirthday}
+                  editCandidateTitle={editCandidateTitle}
+                  setEditCandidateTitle={setEditCandidateTitle}
+                  editCandidateEmail={editCandidateEmail}
+                  setEditCandidateEmail={setEditCandidateEmail}
+                  editCandidate={editCandidate}
+                />
+              </Route>
+              {/* COMPANIES */}
+              <Route exact path="/admin/companies/new">
+                <AddNewCompany
+                  addCompany={addCompany}
+                  newCompanyName={newCompanyName}
+                  setNewCompanyName={setNewCompanyName}
+                  newCompanyEmail={newCompanyEmail}
+                  setNewCompanyEmail={setNewCompanyEmail}
+                  newCompanyNumber={newCompanyNumber}
+                  setNewCompanyNumber={setNewCompanyNumber}
+                  newCompanyPIB={newCompanyPIB}
+                  setNewCompanyPIB={setNewCompanyPIB}
+                  newCompanyAddress={newCompanyAddress}
+                  setNewCompanyAddress={setNewCompanyAddress}
+                  newCompanyContact={newCompanyContact}
+                  setNewCompanyContact={setNewCompanyContact}
+                />
+              </Route>
+              <Route exact path="/admin/companies/edit/:id">
+                <EditCompany
+                  editCompany={editCompany}
+                  companies={companies}
+                  setCompanies={setCompanies}
+                  editCompanyName={editCompanyName}
+                  setEditCompanyName={setEditCompanyName}
+                  editCompanyEmail={editCompanyEmail}
+                  setEditCompanyEmail={setEditCompanyEmail}
+                />
+              </Route>
+              <Route exact path="/admin/companies/:id">
+                <Company
+                  companies={companies}
+                  companyDelete={companyDelete}
+                  reports={reports}
+                />
+              </Route>
+              <Route exact path="/admin/companies">
+                <Companies
+                  companies={searchCompaniesResults}
+                  searchCompanies={searchCompanies}
+                  setSearchCompanies={setSearchCompanies}
+                />
+              </Route>
+              {/* REPORTS */}
+              <Route exact path="/admin/reports">
+                <Reports
+                  // candidates & companies
+                  candidates={searchCandidatesResults}
+                  searchCandidates={searchCandidates}
+                  setSearchCandidates={setSearchCandidates}
+                  companies={searchCompaniesResults}
+                  searchCompanies={searchCompanies}
+                  setSearchCompanies={setSearchCompanies}
+                  // reports
+                  reports={reports}
+                  setReports={setReports}
+                  searchReports={searchReports}
+                  setSearchReports={setSearchReports}
+                  searchReportsResults={searchReportsResults}
+                  setSearchReportsResults={setSearchReportsResults}
+                  reportCandidate={reportCandidate}
+                  setReportCandidate={setReportCandidate}
+                  reportCompany={reportCompany}
+                  setReportCompany={setReportCompany}
+                  reportInterviewDate={reportInterviewDate}
+                  setReportInterviewDdate={setReportInterviewDdate}
+                  reportPhase={reportPhase}
+                  setReportPhase={setReportPhase}
+                  reportStatus={reportStatus}
+                  setReportStatus={setReportStatus}
+                  reportNotes={reportNotes}
+                  setReportNotes={setReportNotes}
+                  addReport={addReport}
+                  // setShowAddReport(!showAddReport)
+                  showAddReport={showAddReport}
+                  setShowAddReport={setShowAddReport}
+                />
+              </Route>
+              <Route exact path="/admin/reports/:id">
+                <Report
+                  reports={reports}
+                  reportsDelete={reportDelete}
+                />
+              </Route>
+
+            </Switch>
+          </main>
+        </div>
+      )
+      }
+
+
+
+
     </div>
   );
 }

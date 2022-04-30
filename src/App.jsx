@@ -9,12 +9,12 @@ function App() {
     <div className="App">
 
       {!isLogedIn && <Switch>
-        <Route path='/'><Login setIsLogedIn={setIsLogedIn} /></Route>
+        <Route exact path=''><Login setIsLogedIn={setIsLogedIn} /></Route>
         <Redirect from='/admin' to='/' />
       </Switch>}
       {isLogedIn && <Switch>
-        <Route path="/admin" component={Admin} />
-        <Redirect from='/' to='/admin' />
+        <Route path="/admin/"  ><Admin setIsLogedIn={setIsLogedIn} /></Route>
+        <Redirect from='/' to='/admin/candidates' />
 
       </Switch>}
 

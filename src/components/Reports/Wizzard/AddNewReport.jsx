@@ -24,6 +24,8 @@ const AddNewReport = ({
   setReportStatus,
   reportNotes,
   setReportNotes,
+  setShowAddReport, 
+  showAddReport,
   addReport
 }) => {
 
@@ -76,6 +78,8 @@ const AddNewReport = ({
       setReportStatus={setReportStatus}
       reportNotes={reportNotes}
       setReportNotes={setReportNotes}
+      showAddReport={showAddReport}
+      setShowAddReport={setShowAddReport}
       addReport={addReport}
     />
   ];

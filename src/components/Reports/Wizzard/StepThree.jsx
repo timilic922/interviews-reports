@@ -16,6 +16,8 @@ const StepThree = ({
   setReportStatus,
   reportNotes,
   setReportNotes,
+  setShowAddReport, 
+  showAddReport,
   addReport
 }) => {
 
@@ -36,8 +38,8 @@ const StepThree = ({
         <p>Company: <span className="rowSpan">{reportCompany.name}</span></p>
       </div>
       <form className='addNew-report' onSubmit={addReport}>
-        <div className="formControl">
-          <span htmlFor="interviewDate">The interview date:</span>
+        <div className="formControl top-border">
+          <label htmlFor="interviewDate">The interview date:</label>
           <input
             id="interviewDate"
             type='date'
@@ -48,7 +50,7 @@ const StepThree = ({
         </div>
 
         <div className="formControl">
-          <span htmlFor="phase">Interview phase:</span>
+          <label htmlFor="phase">Interview phase:</label>
           <select id="phase"
             onClick={(e) => setReportPhase(e.target.value)}
           >
@@ -64,13 +66,13 @@ const StepThree = ({
         </div>
 
         <fieldset className="InterviewStatus formControl" value={reportStatus} onChange={e => setReportStatus(e.target.value)}>
-          <span>Interview status</span>
-          <label className="radioInput" for="passed"><input type="radio" name="InterviewStatus" value="passed" />Passed</label>
-          <label className="radioInput" for="declined"><input type="radio" name="InterviewStatus" value="declined" />declined</label>
+          <label>Interview status</label>
+          <label className="radioInput" htmlFor="passed"><input type="radio" name="InterviewStatus" value="passed" />Passed</label>
+          <label className="radioInput" htmlFor="declined"><input type="radio" name="InterviewStatus" value="declined" />declined</label>
         </fieldset>
 
         <div className="formControl">
-          <span>Additional notes:</span><br />
+          <label>Additional notes:</label><br />
           <textarea
             name="textValue"
             rows="8"
@@ -81,9 +83,9 @@ const StepThree = ({
 
         </div>
 
-        <div className="btns">
-          <input type="button" className='btnWizzard btnWizzardNext' onClick={handlePrevStep} value='Back' />
-          <input type="submit" className='btnWizzard btnWizzardNext' value={'Save'} />
+        <div className="btn-container">
+          <input type="button" className='btnWizzard btnWizzardBack' onClick={handlePrevStep} value='Back' />
+          <input type='submit' className='btnWizzard btnWizzardNext' value={'Save'} />
         </div>
 
 

@@ -1,12 +1,17 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+import { IoArrowBackCircleOutline,IoSearchCircleSharp } from "react-icons/io5";
 
 const NewCandidate = ({ addCandidate, candidateName, setCandidateName, candidateImg, setCandidateImg, candidateBirthday, setCandidateBirthday, candidateTitle, setCandidateTitle, candidateEmail, setCandidateEmail }) => {
   return (
     <>
       <div className="topBar">
+      <Link to="/admin/candidates" className='btnBack'>
+          <IoArrowBackCircleOutline className='btnBack-icon'/><h6>Candidates</h6>
+        </Link>
         <h2>Add New Candidate</h2>
       </div>
-      <div className="container">
+      <div className="container containerInputs">
         <form
           className='addNew'
           onSubmit={addCandidate}>
@@ -24,7 +29,6 @@ const NewCandidate = ({ addCandidate, candidateName, setCandidateName, candidate
 
           <div className='formControl'>
             <label htmlFor="candidateImg">Candidate Img:
-            <span>please use url</span>
             </label>
             <input
               id='candidateImg'
@@ -56,7 +60,7 @@ const NewCandidate = ({ addCandidate, candidateName, setCandidateName, candidate
               onChange={(e) => setCandidateTitle(e.target.value)}
             />
           </div>
-          <div className='candidateEmail'>
+          <div className='formControl'>
             <label htmlFor="">Email</label>
             <input
               id='candidateEmail'
@@ -66,11 +70,11 @@ const NewCandidate = ({ addCandidate, candidateName, setCandidateName, candidate
               onChange={(e) => setCandidateEmail(e.target.value)}
             />
           </div>
-          <button type='submit'>Save Candidate</button>
+          <button type='submit' className='bnt btnSave'>Save Candidate</button>
 
         </form>
       </div>
-    </>
+ </>
   )
 }
 

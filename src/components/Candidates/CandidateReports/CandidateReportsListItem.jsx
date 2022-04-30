@@ -6,19 +6,19 @@ const CandidateReportsListItem = ({ report }) => {
 
   return (
     <div className="reportListItem">
-      <Link to={`${url}/${report.id}`} className="CandidateReport">
+      <Link to={`/admin/reports/${report.id}`} className="ListItem CandidateReport">
         <div className="ListItem-data_header">
-          <h5>{report.company.name}</h5>
+          <h5>&bull; {report.company.name}</h5>
         </div>
         <div className="ListItem-data">
           <p>{report.phase}</p>
         </div>
         <div className="ListItem-data">
           {report.status === 'passed' ? (
-            <> <IoCheckmarkDoneCircleSharp style={{ color: 'blue' }} className="ListItem-data_icon" />
+            <> <IoCheckmarkDoneCircleSharp className="ListItem-icon ListItem-icon_passed" />
               <p>{report.status}</p></>
           ) : (
-            <><IoCloseCircleSharp style={{ color: 'red' }} className="ListItem-data_icon" />
+            <><IoCloseCircleSharp style={{ color: 'red' }} className="ListItem-icon ListItem_icon_declined" />
               <p>{report.status}</p></>
           )
           }

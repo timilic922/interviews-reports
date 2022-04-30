@@ -7,13 +7,13 @@ import { IoSearchCircleSharp } from "react-icons/io5";
 const Candidates = ({ candidates, searchCandidates, setSearchCandidates }) => {
 
   return (
-    <div className='listAll'>
+    <div className='AllPage'>
       <div className="topBar">
         <h2>Candidates</h2>
         <Link
           to='/admin/candidates/new'
           className='LinkBtn'>
-          <div className='btn btnAddNew'> Add New Candidate </div>
+          <div className='btn btnAddNew'>add new</div>
         </Link>
       </div>
 

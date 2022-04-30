@@ -1,59 +1,176 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap');
 
-* {
+*,
+*::before,
+*::after,
+html,
+body {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: 'Raleway', sans-serif;
+    color: #151C28;
 }
+
+body {
+    min-height: 100vh;
+    font-family: 'Open Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    background-color: #fafafa;
+  }
+  
+  #root {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  main{
+    flex-grow: 1;
+  }
+  
+  .App {
+    width: 100%;
+    height: 100vh;
+  }
 
 html,
 body {
-    font-family: 'Raleway', sans-serif;
-    font-size: 20px;
-    color: #272932;
-}
-
-body {
-    width: 100vw;
-    height: 100vh;
-}
-
-.App {
-    width: 100%;
-    height: 100vh;
-}
-
-a, button{
-    color: #0E131B;
     font-size: 16px;
 }
+
+img,
+svg {
+    display: block;
+    max-width: 100%;
+    background-color: transparent;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+#root,
+#__next {
+    isolation: isolate;
+}
+
+option,
+option:hover,
+option:focus,
+option:active{
+    background-color: none;
+}
+
 a {
     text-decoration: none;
-    cursor: pointer;
 }
 
 button {
-    border: none;
+    border: 0;
     padding: 0;
+    outline: 0;
+    cursor: pointer;
+    &:hover{
+        font-weight: 600;
+    }
+}
+
+.btn {
+    font-size: .95rem;
+    letter-spacing: .2px;
+    padding: .6rem 1.8rem;
+    border: 1px solid black;
+    cursor: pointer;
+    &:hover{
+        font-weight: 600;
+    }
+}
+
+.btnAddNew {
+    background-color: #151C28;
+    border: 1px solid #151C28;
+    color: #D7DEEA;
+}
+.btn-container{
+    display: flex;
+    justify-content: space-between;
+}
+.btnWizzard{
+    width: 48%;
+    text-align: center;
+}
+
+.btn-container.btn-container1{
+    justify-content: flex-end
+}
+input[type="submit" i]:disabled{
+    background-color: rgba(24, 99, 84, 0.517);
+    border: 1px solid #186354;
+    color: #D7DEEA;
+    font-size: 1rem;
+    
+}
+
+input.btnWizzardBack{
+    // color: #D7DEEA;
+    font-size: 1rem;
+    border: 0;
+}
+
+input.btnWizzardNext{
+    background-color: #186354;
+    color: #D7DEEA;
+    font-size: 1rem;
+    border: 0;
+}
+
+.btnSave{
+    justify-self: end;
+    padding: 1.1rem 2.6rem;
+    background-color: #186354;
+    color: #D7DEEA;
+}
+
+.btnDelete{
+    background-color: #DC2E39;
+    color: white;
+    border:0
+}
+.btnEdit{
+    background-color: #FBB13C;
+    color: white;
+    border:0
+}
+.btnEdit button{
     background-color: transparent;
-    cursor: pointer;
-    height: 0
-}
-a > button{
-    padding: 0;
-    cursor: pointer;
+    color: white;
+
 }
 
+.btnAddNew{
+    color: white;
+}
 
-// _________________________
-// variables
-$text-light:#F4F5F5;
-$text-light_1:#C9CFCF;
-$text-light_2:#A9B2B2;
+.btnBack{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 15px;
+    .btnBack-icon{
+        font-size: 1rem;
+        margin-right: 5px;
+    }
+    * {
+        letter-spacing: 1px;
+        font-size: .8rem;
+    }
+}
 
-$text-dark:#0E131B;
-$text-dark_1:#151C28;
-$text-dark_2:#232F43;
-$text-dark_3: #AFBDD5;
-$text-dark_4: #e9f1ff;
+

@@ -1,14 +1,89 @@
-.log-wraper{
+.login{
+    width: 100vw;
+    height: 100vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: linear-gradient(-45deg, #28344b, #263754, #161c28, #202c43);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
 }
 
-.log-form{
-    background-color: rgb(232, 195, 195);
-    min-width: 200px;
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1px;
     text-align: center;
-
+    border-bottom: 1px solid #151c2814;
+    padding: 20px 0 10px;
+    margin-bottom: 30px;
+    color: #151C28;
 }
 
+form{
+    margin-top: 60px;
+}
+
+.loginContainer{
+    background-color: whitesmoke;
+    border: 1px solid rgba(128, 128, 128, 0.26);
+    padding: 40px 60px 60px;
+    width: 480px;
+    -webkit-box-shadow: 5px 5px 17px 5px rgba(0,0,0,0.26); 
+box-shadow: 5px 5px 17px 5px rgba(0,0,0,0.26);
+    
+    .err{
+        p, p b{
+            color: red;
+            margin: 2px 0;
+        }
+    }
+    
+    .input__container{
+        margin: 20px 0;
+        display: flex;
+        align-items: center;
+        label{
+            flex: 1;
+        }
+        input {
+            flex: 2.5;
+            padding: 5px;
+        }
+    } 
+}
+
+.containerBtn {
+        display: flex;
+        
+}
+
+#btnLogin{
+    display: flex;
+    align-items: center;
+    font-size: 17px;
+    margin-top: 30px;
+    svg{
+        margin-left: 2px;
+        font-size: 16px;
+        stroke: white;
+    }
+}
+
+#btnLogin:hover {
+    font-weight: bold;
+    svg{
+    margin-left: 4px;
+}}

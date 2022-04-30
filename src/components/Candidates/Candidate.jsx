@@ -1,16 +1,16 @@
 import { Link, useParams } from 'react-router-dom';
 import ListOfCandidateReports from './CandidateReports/ListOfCandidateReports';
-import { IoCalendarOutline, IoArrowBackCircleOutline } from "react-icons/io5";
+import { IoCalendarOutline, IoArrowBackCircleOutline, IoPricetagsOutline, IoMailOutline } from "react-icons/io5";
 
 const Candidate = ({ candidates, deleteCandidate, reports }) => {
   const { id } = useParams();
   const candidate = candidates.find(candidate => (candidate.id).toString() === id);
-
+console.log(id)
   return (
-    <div className='SinglePage'>
-      <div className="topBar">
+    <div className='singlePage'>
+    <div className="topBar">
         <Link to="/admin/candidates" className='btnBack'>
-          <IoArrowBackCircleOutline /><h6>Candidates</h6>
+          <IoArrowBackCircleOutline className='btnBack-icon'/><h6>Candidates</h6>
         </Link>
 
         <div className='options'>
@@ -19,8 +19,8 @@ const Candidate = ({ candidates, deleteCandidate, reports }) => {
             <span>{candidate.datetime}</span>
           </div>
           <div className='btns'>
-            <button className='btn' onClick={() => deleteCandidate(candidate.id)}>Delete</button>
-            <Link to={`/admin/candidates/edit/${id}`} className='btn'>
+            <button className='btn btnDelete' onClick={() => deleteCandidate(candidate.id)}>Delete</button>
+            <Link to={`/admin/candidates/edit/${id}`} className='btn btnEdit'>
               Edit
             </Link>
             {/* <button onClick={() => editCandidate(candidate.id)}>Delete</button> */}
@@ -34,8 +34,8 @@ const Candidate = ({ candidates, deleteCandidate, reports }) => {
             <div className="showInfo-data">
               <h4>{candidate.name}</h4>
               <p><IoCalendarOutline className='showInfo-data_icon' /> {candidate.birthday}</p>
-              <p>title: {candidate.title}</p>
-              <p>email: {candidate.email}</p>
+              <p><IoPricetagsOutline className='showInfo-data_icon' /> {candidate.title}</p>
+              <p><IoMailOutline className='showInfo-data_icon' />: {candidate.email}</p>
             </div>
           </div>
           

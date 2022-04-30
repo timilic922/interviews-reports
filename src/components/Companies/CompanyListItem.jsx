@@ -5,7 +5,6 @@ const CompanyListItem = ({ company }) => {
   return (
     <Link to={`${url}/${company.id}`} className="ListItem">
       <h4>{company.name}</h4>
-      <p>{company.email}</p>
     </Link>
 
   )

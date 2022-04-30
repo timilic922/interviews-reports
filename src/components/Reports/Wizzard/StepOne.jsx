@@ -2,12 +2,9 @@ import React, { useState } from 'react';
 // 
 const StepOne = ({ candidates, searchCandidates, setSearchCandidates, reportCandidate, setReportCandidate, handleNextStep }) => {
 
-    console.log(reportCandidate)
-
     return (
         <>
-
-            <div className="searchBox">
+            <div className="searchBox searchBox-m">
                 <form className='searchInput' onSubmit={(e) => e.preventDefault()}>
                     <input
                         className='search'
@@ -20,8 +17,10 @@ const StepOne = ({ candidates, searchCandidates, setSearchCandidates, reportCand
                 {/* <IoSearchCircleSharp className='searchIcon' /> */}
             </div>
             {candidates.length ? (
-                <>
+                
                     <form className='select' onSubmit={handleNextStep}>
+                    <div className="searchBox">
+                    </div>
                         <select id="selectCandidate" name="selectCandidate" size="5">
                             {candidates.map(candidate => (
                                 <option
@@ -33,11 +32,11 @@ const StepOne = ({ candidates, searchCandidates, setSearchCandidates, reportCand
                                     }}>{candidate.name}</option>
                             ))}
                         </select>
-                        <div className="btn-container">
+                        <div className="btn-container btn-container1">
                             {reportCandidate ? <input type="submit" className='btnWizzard btnWizzardNext' value={'Next'} /> : <input type="submit" className='btnWizzard btnWizzardNext_disabled' value={'Next'} disabled />}
                         </div>
                     </form>
-                </>
+               
             ) : (
                 <p className='noItems'>Nista za prikaz</p>
             )}

@@ -1,34 +1,33 @@
 import { Link, useRouteMatch } from 'react-router-dom'
 import { IoCheckmarkDoneCircleSharp, IoCloseCircleSharp, IoTrashOutline} from "react-icons/io5";
+import { IoPeopleSharp, IoBusinessSharp, IoDocumentTextSharp } from "react-icons/io5";
 
-const ReportListItem = ({ report, count }) => {
+const ReportListItem = ({ report, reportsDelete }) => {
   const { url } = useRouteMatch();
 
   return (
-    <Link to={`${url}/${report.id}`} className="ListItem">
-      <div className="ListItem-data_header">
-        <p>{count}</p>
-        <h5>{report.company.name}</h5>
-        <div className="space">|</div>
-        <h5>{report.candidate.name}</h5>
+    <div  className="ListItem ListItem-report">
+    <Link to={`${url}/${report.id}`} className="ListItem-link">
+      <div className="ListItem-data_main">
+        <h5><IoBusinessSharp/> {report.company.name}</h5>
+        <h5><IoPeopleSharp/> {report.candidate.name}</h5>
       </div>
-      <div className="ListItem-data">
+      <div className="ListItem-data ListItem-data_phase">
         <p>{report.phase}</p>
       </div>
-      <div className="ListItem-data">
+      <div className="ListItem-data ListItem-data_status">
         {report.status === 'passed' ? (
-         <> <IoCheckmarkDoneCircleSharp style={{ color: 'blue' }} className="ListItem-data_icon"/>
+         <> <IoCheckmarkDoneCircleSharp className="ListItem-icon ListItem-icon_passed"/>
           <p>{report.status}</p></>
         ) : (
-          <><IoCloseCircleSharp style={{ color: 'red' }} className="ListItem-data_icon"/>
+          <><IoCloseCircleSharp className="ListItem-icon ListItem_icon_declined"/>
           <p>{report.status}</p></>
         )
         }
       </div>
-      <div className="ListItem-data deleteItem">
-        <button><IoTrashOutline/></button>
+      </Link>
+      
       </div>
-    </Link>
   )
 }
 

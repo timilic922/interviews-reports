@@ -1,0 +1,320 @@
+.Admin {
+    .mobile {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        overflow-y: visible;
+
+        header,
+        footer {
+            color: #D7DEEA;
+            background-color: #151C28;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            flex-grow: 0;
+
+        }
+
+        header {
+            height: 80px;
+            padding: 20px;
+            align-items: center;
+
+            .logo {
+                color: #D7DEEA;
+            }
+
+            .logOut {
+                background-color: #151C28;
+                font-size: 3rem;
+                outline: none;
+                border: none;
+
+                path {
+                    color: #D7DEEA;
+                }
+            }
+        }
+
+        footer {
+            align-items: flex-end;
+            padding: 25px 30px 15px 30px;
+            color: #D7DEEA;
+
+            .navItem {
+                color: #D7DEEA;
+                font-size: .85rem;
+                letter-spacing: 1px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .navIcon {
+                    fill: #D7DEEA;
+                    font-size: 1.6rem;
+                    margin-bottom: 7px;
+                }
+            }
+        }
+
+        main {
+            height: 100%;
+
+            .AllPage {
+                padding: 40px 10px;
+
+                .topBar {
+                    padding: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+
+                .container {
+                    margin-top: 70px;
+
+                    .List {
+                        max-height: 40vh;
+                        margin-top: 40px;
+                        flex-grow: 1;
+                        overflow-y: scroll;
+
+                        .ListItem {
+                            margin: 5px 10px;
+                            padding: 25px 5px 5px 20px;
+                            align-items: flex-end;
+
+                            p {
+                                font-size: 14px;
+                            }
+                        }
+
+                        .ListItem-report {
+                            margin: 20px 0 15px 0;
+                            padding: 10px 5px 0 5px;
+                            align-items: center;
+
+                            .ListItem-link {
+                                flex: 4;
+                                display: flex;
+                                align-items: center;
+
+                                .ListItem-data_main h5 {
+                                    margin-bottom: 8px;
+                                }
+                            }
+
+                        }
+
+                        .deleteItem {
+                            flex: .5;
+                            background: transparent;
+                            display: flex;
+                            align-items: center;
+
+                            button svg {
+                                font-size: 1.2rem;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .singlePage {
+                padding: 40px 10px;
+
+                .info {
+                    margin-top: 60px;
+                    display: flex;
+                    flex-direction: column;
+
+                    // align-items: center;
+                    .showInfo {
+                        display: flex;
+                        align-items: center;
+                        margin-bottom: 60px;
+                    }
+
+                    .candidateImg {
+                        border-radius: 50%;
+                        width: 140px;
+                        margin-right: 30px;
+                    }
+
+                    h4 {
+                        font-size: 20px;
+                        margin-bottom: 10px;
+                    }
+
+                    .showInfo-data p {
+                        // padding-left: 20px;
+                        margin: 10px 0;
+                        display: flex;
+                        align-items: center;
+                        color: rgba(21, 28, 40, 0.75);
+
+                        .showInfo-data_icon {
+                            font-size: 1rem;
+                            margin-right: 7px;
+                            fill: rgba(21, 28, 40, 0.8);
+                            stroke: rgba(21, 28, 40, 0.8);
+
+                        }
+                    }
+
+                    .showInfo-data span {
+                        font-weight: 300;
+                        font-size: 12px;
+                        text-transform: uppercase;
+                        letter-spacing: 1px;
+                    }
+                }
+
+                .CandidateReports {
+                    .reportsFor {
+                        font-size: 1rem;
+                    }
+
+                    .CandidateReport {
+                        margin: 20px 20px 15px 20px;
+                        padding: 10px 5px 8px 5px;
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        margin: 10px 0 5px 0;
+                        border-bottom: 1px solid #E4E9F1;
+
+                        .ListItem-data_header {
+                            flex: 2;
+                        }
+
+                        .ListItem-data {
+                            flex: 1;
+                            display: flex;
+                            font-size: 14px;
+                        }
+
+                    }
+
+                }
+
+            }
+
+            .AddNewPage {
+                padding: 40px 10px;
+                height: 70vh;
+
+                .container {
+                    margin-top: 40px;
+                    width: 100%;
+
+                    .addNew {
+                        display: flex;
+                        flex-grow: 1;
+                        overflow-y: auto;
+                        flex-direction: column;
+                        justify-content: flex-end;
+
+                        .formControl {
+                            margin: 20px;
+                            display: flex;
+                            flex-direction: column;
+
+                            .label-span {
+                                font-style: oblique;
+                                font-size: .8rem;
+                                margin: 2px 0 4px 0;
+                            }
+
+                            input.addInput {
+                                height: 40px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.container {
+    padding: 0;
+}
+
+.AllPage-report {
+    width: 100vw;
+
+    .container_newReport {
+        margin-top: 40px;
+        width: 100%;
+
+        h3 {
+            margin: 20px 0;
+        }
+
+        .searchBox {
+            margin: 20px 0;
+        }
+
+        .container_newReport .select select {
+            width: 100%;
+        }
+
+    }
+}
+
+.container_newReport .select select {
+    width: 100%;
+}
+
+
+.container_newReport {
+    width: 100%;
+}
+
+@media screen and (min-width: 600px) and (max-width:980px) {
+   html{
+       font-size: 18px;
+   }
+
+    .Admin {
+        .mobile {
+            header{
+                padding: 40px 20px;
+                .logo{
+                    // line-height: 40px;
+                    font-size: 30px;
+                }
+                .logOut{
+                    svg{
+                        font-size: 60px;
+                    }
+                }
+            }
+            footer {
+                padding: 30px 15vw 20px 15vw;
+
+                a.navItem {
+                    font-size: 20px;
+                    .navIcon{
+                        font-size: 35px;
+                    }
+                }
+            }
+        }
+    }
+
+    a.navItem {
+        font-size: 20px;
+    }
+
+    .topBar {
+        padding: 0 5vw;
+    }
+
+    .container {
+        padding: 0 10vw;
+    }
+
+}
